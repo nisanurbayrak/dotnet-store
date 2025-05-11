@@ -1,0 +1,94 @@
+@model ProductCreateModel
+@{
+    Layout = "_AdminLayout";
+}
+
+<div class="row">
+    <div class="col-12">
+        <div class="card-body shadow">
+            <div asp-validation-summary="All" class="text-danger"></div>
+            <form method="post" asp-controller="Product" asp-action="Create" enctype="multipart/form-data" class="p-4">
+                <div class="row">
+                    <div class="col-md-8">
+                        <div class="mb-3">
+                            <label asp-for="ProductName" class="form-label"></label>
+                            <input asp-for="ProductName" class="form-control shadow-sm" id="ProductName" />
+                            <span asp-validation-for="ProductName" class="text-danger"></span>
+                        </div>
+
+                        <div class="mb-3">
+                            <label asp-for="Description" class="form-label"></label>
+                            <textarea asp-for="Description" id="editor" rows="4" class="form-control shadow-sm"></textarea>
+                        </div>
+
+                        <div class="row mb-3">
+                            <div class="col-md-6">
+                                <label asp-for="Price" class="form-label"></label>
+                                <div class="input-group shadow-sm">
+                                    <input asp-for="Price" class="form-control" id="Price" type="number" step="0.01" min="10" max="300000" />
+                                    <span class="input-group-text">TL</span> 
+                                </div>
+                                <span asp-validation-for="Price" class="text-danger"></span>
+                            </div>
+
+
+                            <div class="col-md-6">
+                                <label asp-for="Stock" class="form-label"></label>
+                                <input asp-for="Stock" class="form-control shadow-sm" id="Stock" />
+                                <span asp-validation-for="Stock" class="text-danger"></span>
+                            </div>
+                        </div>
+
+                        <div class="row mb-3">
+                            <div class="col-6 d-flex gap-5">
+                                <div class="d-flex align-items-center gap-3 mt-2">
+                                    <label asp-for="IsActive" class="form-label"></label>
+                                    <div class="form-check form-switch" style="transform: scale(1.5);">
+                                        <input class="form-check-input" role="switch" asp-for="IsActive" id="IsActive" />
+                                    </div>
+                                </div>
+
+                                <div class="d-flex align-items-center gap-3 mt-2">
+                                    <label asp-for="IsHome" class="form-label"></label>
+                                    <div class="form-check form-switch" style="transform: scale(1.5);">
+                                        <input class="form-check-input" role="switch" asp-for="IsHome" id="IsHome" />
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-md-6">
+                                <label asp-for="CategoryId" class="form-label"></label>
+                                <select asp-for="CategoryId" class="form-select shadow-sm" asp-items="ViewBag.Categories" id="CategoryId">
+                                    <option value="" selected disabled>Seçiniz</option>
+                                </select>
+                                <span asp-validation-for="CategoryId" class="text-danger"></span>
+                            </div>
+                        </div>
+
+                          
+                </div>
+                <div class="col-md-4">
+                <label asp-for="Image" class="form-label"></label>
+                <div class="text-center p-3 border rounded shadow-sm bg-light">
+                    <img id="imagePreview" src="https://placehold.co/300x200" class="img-thumbnail mb-2" style="max-height: 200px;" alt="Görsel Önizleme" />
+                    <input type="file" asp-for="Image" class="form-control shadow-sm" accept="image/*" onchange="previewImage(event)">
+                    <span asp-validation-for="Image" class="text-danger"></span>
+                </div>
+
+                <div class="text-end mt-4">
+            <button type="submit" class="btn btn-md btn-primary w-25 shadow-sm">Kaydet</button>
+            </div>
+
+            </div>
+            </form>
+    </div>
+</div>
+
+</div>
+
+@section Scripts{
+    @await Html.PartialAsync("_ValidationScriptsPartial")
+}
+
+
+

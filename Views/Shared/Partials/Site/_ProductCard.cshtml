@@ -1,0 +1,20 @@
+@model Product
+
+<div class="card shadow">
+  <div class="img-wrap">
+    <span class="badge bg-success">İndirim</span>
+        <img src="~/img/@Model.Image" alt="@Model.ProductName" class="card-img-top">
+  </div>
+
+  <div class="border-top info-wrap">
+    <a asp-controller="Product" asp-action="Details" asp-route-id="@Model.Id" class="float-end btn btn-light">
+      <i class="fa-regular fa-heart"></i>
+    </a>
+    <a asp-controller="Product" asp-action="Details" asp-route-id="@Model.Id" class="title text-truncate"
+      >@Model.ProductName</a>
+    <div class="price-wrap">
+      <span class="price-discount">@Model.Price ₺</span>
+      @* <del class="price">45.999 ₺</del> *@
+    </div>
+  </div>
+</div>

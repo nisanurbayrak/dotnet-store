@@ -1,0 +1,17 @@
+using System.ComponentModel.DataAnnotations;
+
+namespace dotnet_store.Models;
+
+public class CategoryEditModel
+{
+    public int Id { get; set; }
+    [Required]
+    [StringLength(50)]
+    [Display(Name = "Category Name")]
+    public string CategoryName { get; set; } = null!;
+    [Required]
+    [StringLength(20)]
+    [Display(Name = "Url")]
+    public string Url { get; set; } = null!;
+
+}

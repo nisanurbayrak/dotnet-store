@@ -1,0 +1,17 @@
+@model Category
+@{
+    Layout ="_AdminLayout";
+}
+
+<div class="row">
+    <div class="col text-center">
+        <div class="card shadow">
+        <div class="card-body">
+        <p>@Model.CategoryName isimli kategoriyi silmek üzeresiniz. Bu işlem geri alınamaz.</p>
+        <form asp-controller="Category" asp-action="DeleteConfirm" method="post">
+            <input type="hidden" name="Id" value="@Model.Id">
+            <button type="submit" class="btn btn-danger">Sil</button>
+            <a asp-controller="Category" asp-action="Index" class="btn btn-secondary">İptal</a>
+        </form>
+    </div></div></div>
+</div>

@@ -1,0 +1,409 @@
+{
+  "Files": [
+    {
+      "Id": "C:\\Users\\nisan\\OneDrive\\Masaüstü\\proje\\dotnet-store\\wwwroot\\css\\admin.css",
+      "PackagePath": "staticwebassets\\css\\admin.css"
+    },
+    {
+      "Id": "C:\\Users\\nisan\\OneDrive\\Masaüstü\\proje\\dotnet-store\\wwwroot\\css\\site.css",
+      "PackagePath": "staticwebassets\\css\\site.css"
+    },
+    {
+      "Id": "C:\\Users\\nisan\\OneDrive\\Masaüstü\\proje\\dotnet-store\\wwwroot\\e-commerce\\details.html",
+      "PackagePath": "staticwebassets\\e-commerce\\details.html"
+    },
+    {
+      "Id": "C:\\Users\\nisan\\OneDrive\\Masaüstü\\proje\\dotnet-store\\wwwroot\\e-commerce\\index.html",
+      "PackagePath": "staticwebassets\\e-commerce\\index.html"
+    },
+    {
+      "Id": "C:\\Users\\nisan\\OneDrive\\Masaüstü\\proje\\dotnet-store\\wwwroot\\e-commerce\\shopping-cart.html",
+      "PackagePath": "staticwebassets\\e-commerce\\shopping-cart.html"
+    },
+    {
+      "Id": "C:\\Users\\nisan\\OneDrive\\Masaüstü\\proje\\dotnet-store\\wwwroot\\favicon.ico",
+      "PackagePath": "staticwebassets\\favicon.ico"
+    },
+    {
+      "Id": "C:\\Users\\nisan\\OneDrive\\Masaüstü\\proje\\dotnet-store\\wwwroot\\img\\0mu45d4i.11e.jpg",
+      "PackagePath": "staticwebassets\\img\\0mu45d4i.11e.jpg"
+    },
+    {
+      "Id": "C:\\Users\\nisan\\OneDrive\\Masaüstü\\proje\\dotnet-store\\wwwroot\\img\\1-big.jpeg",
+      "PackagePath": "staticwebassets\\img\\1-big.jpeg"
+    },
+    {
+      "Id": "C:\\Users\\nisan\\OneDrive\\Masaüstü\\proje\\dotnet-store\\wwwroot\\img\\1.jpeg",
+      "PackagePath": "staticwebassets\\img\\1.jpeg"
+    },
+    {
+      "Id": "C:\\Users\\nisan\\OneDrive\\Masaüstü\\proje\\dotnet-store\\wwwroot\\img\\2-big.jpeg",
+      "PackagePath": "staticwebassets\\img\\2-big.jpeg"
+    },
+    {
+      "Id": "C:\\Users\\nisan\\OneDrive\\Masaüstü\\proje\\dotnet-store\\wwwroot\\img\\2.jpeg",
+      "PackagePath": "staticwebassets\\img\\2.jpeg"
+    },
+    {
+      "Id": "C:\\Users\\nisan\\OneDrive\\Masaüstü\\proje\\dotnet-store\\wwwroot\\img\\3-big.jpeg",
+      "PackagePath": "staticwebassets\\img\\3-big.jpeg"
+    },
+    {
+      "Id": "C:\\Users\\nisan\\OneDrive\\Masaüstü\\proje\\dotnet-store\\wwwroot\\img\\3.jpeg",
+      "PackagePath": "staticwebassets\\img\\3.jpeg"
+    },
+    {
+      "Id": "C:\\Users\\nisan\\OneDrive\\Masaüstü\\proje\\dotnet-store\\wwwroot\\img\\4-big.jpeg",
+      "PackagePath": "staticwebassets\\img\\4-big.jpeg"
+    },
+    {
+      "Id": "C:\\Users\\nisan\\OneDrive\\Masaüstü\\proje\\dotnet-store\\wwwroot\\img\\4.jpeg",
+      "PackagePath": "staticwebassets\\img\\4.jpeg"
+    },
+    {
+      "Id": "C:\\Users\\nisan\\OneDrive\\Masaüstü\\proje\\dotnet-store\\wwwroot\\img\\6.jpeg",
+      "PackagePath": "staticwebassets\\img\\6.jpeg"
+    },
+    {
+      "Id": "C:\\Users\\nisan\\OneDrive\\Masaüstü\\proje\\dotnet-store\\wwwroot\\img\\7.jpeg",
+      "PackagePath": "staticwebassets\\img\\7.jpeg"
+    },
+    {
+      "Id": "C:\\Users\\nisan\\OneDrive\\Masaüstü\\proje\\dotnet-store\\wwwroot\\img\\8.jpeg",
+      "PackagePath": "staticwebassets\\img\\8.jpeg"
+    },
+    {
+      "Id": "C:\\Users\\nisan\\OneDrive\\Masaüstü\\proje\\dotnet-store\\wwwroot\\img\\ajdfvlpq.l5f.jpg",
+      "PackagePath": "staticwebassets\\img\\ajdfvlpq.l5f.jpg"
+    },
+    {
+      "Id": "C:\\Users\\nisan\\OneDrive\\Masaüstü\\proje\\dotnet-store\\wwwroot\\img\\bryhyy50.sy4.jpg",
+      "PackagePath": "staticwebassets\\img\\bryhyy50.sy4.jpg"
+    },
+    {
+      "Id": "C:\\Users\\nisan\\OneDrive\\Masaüstü\\proje\\dotnet-store\\wwwroot\\img\\ghw5irkm.0s4.jpg",
+      "PackagePath": "staticwebassets\\img\\ghw5irkm.0s4.jpg"
+    },
+    {
+      "Id": "C:\\Users\\nisan\\OneDrive\\Masaüstü\\proje\\dotnet-store\\wwwroot\\img\\hqcw2hbj.5ni.jpg",
+      "PackagePath": "staticwebassets\\img\\hqcw2hbj.5ni.jpg"
+    },
+    {
+      "Id": "C:\\Users\\nisan\\OneDrive\\Masaüstü\\proje\\dotnet-store\\wwwroot\\img\\jczzdlwc.upd.jpg",
+      "PackagePath": "staticwebassets\\img\\jczzdlwc.upd.jpg"
+    },
+    {
+      "Id": "C:\\Users\\nisan\\OneDrive\\Masaüstü\\proje\\dotnet-store\\wwwroot\\img\\kshwh3hx.qpu.jpg",
+      "PackagePath": "staticwebassets\\img\\kshwh3hx.qpu.jpg"
+    },
+    {
+      "Id": "C:\\Users\\nisan\\OneDrive\\Masaüstü\\proje\\dotnet-store\\wwwroot\\img\\nxjl2ua5.vyi.jpg",
+      "PackagePath": "staticwebassets\\img\\nxjl2ua5.vyi.jpg"
+    },
+    {
+      "Id": "C:\\Users\\nisan\\OneDrive\\Masaüstü\\proje\\dotnet-store\\wwwroot\\img\\pho.png",
+      "PackagePath": "staticwebassets\\img\\pho.png"
+    },
+    {
+      "Id": "C:\\Users\\nisan\\OneDrive\\Masaüstü\\proje\\dotnet-store\\wwwroot\\img\\png.png",
+      "PackagePath": "staticwebassets\\img\\png.png"
+    },
+    {
+      "Id": "C:\\Users\\nisan\\OneDrive\\Masaüstü\\proje\\dotnet-store\\wwwroot\\img\\slider-1.jpeg",
+      "PackagePath": "staticwebassets\\img\\slider-1.jpeg"
+    },
+    {
+      "Id": "C:\\Users\\nisan\\OneDrive\\Masaüstü\\proje\\dotnet-store\\wwwroot\\img\\slider-2.jpeg",
+      "PackagePath": "staticwebassets\\img\\slider-2.jpeg"
+    },
+    {
+      "Id": "C:\\Users\\nisan\\OneDrive\\Masaüstü\\proje\\dotnet-store\\wwwroot\\img\\slider-3.jpeg",
+      "PackagePath": "staticwebassets\\img\\slider-3.jpeg"
+    },
+    {
+      "Id": "C:\\Users\\nisan\\OneDrive\\Masaüstü\\proje\\dotnet-store\\wwwroot\\img\\u5c1lijc.o2m.jpg",
+      "PackagePath": "staticwebassets\\img\\u5c1lijc.o2m.jpg"
+    },
+    {
+      "Id": "C:\\Users\\nisan\\OneDrive\\Masaüstü\\proje\\dotnet-store\\wwwroot\\img\\yahez2nt.ipu.jpg",
+      "PackagePath": "staticwebassets\\img\\yahez2nt.ipu.jpg"
+    },
+    {
+      "Id": "C:\\Users\\nisan\\OneDrive\\Masaüstü\\proje\\dotnet-store\\wwwroot\\img\\ylkpm5pe.m3j.jpg",
+      "PackagePath": "staticwebassets\\img\\ylkpm5pe.m3j.jpg"
+    },
+    {
+      "Id": "C:\\Users\\nisan\\OneDrive\\Masaüstü\\proje\\dotnet-store\\wwwroot\\img\\zhdhhoow.jaj.jpg",
+      "PackagePath": "staticwebassets\\img\\zhdhhoow.jaj.jpg"
+    },
+    {
+      "Id": "C:\\Users\\nisan\\OneDrive\\Masaüstü\\proje\\dotnet-store\\wwwroot\\js\\fslightbox.js",
+      "PackagePath": "staticwebassets\\js\\fslightbox.js"
+    },
+    {
+      "Id": "C:\\Users\\nisan\\OneDrive\\Masaüstü\\proje\\dotnet-store\\wwwroot\\js\\site.js",
+      "PackagePath": "staticwebassets\\js\\site.js"
+    },
+    {
+      "Id": "C:\\Users\\nisan\\OneDrive\\Masaüstü\\proje\\dotnet-store\\wwwroot\\lib\\bootstrap\\LICENSE",
+      "PackagePath": "staticwebassets\\lib\\bootstrap"
+    },
+    {
+      "Id": "C:\\Users\\nisan\\OneDrive\\Masaüstü\\proje\\dotnet-store\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css"
+    },
+    {
+      "Id": "C:\\Users\\nisan\\OneDrive\\Masaüstü\\proje\\dotnet-store\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css.map"
+    },
+    {
+      "Id": "C:\\Users\\nisan\\OneDrive\\Masaüstü\\proje\\dotnet-store\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css"
+    },
+    {
+      "Id": "C:\\Users\\nisan\\OneDrive\\Masaüstü\\proje\\dotnet-store\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css.map"
+    },
+    {
+      "Id": "C:\\Users\\nisan\\OneDrive\\Masaüstü\\proje\\dotnet-store\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css"
+    },
+    {
+      "Id": "C:\\Users\\nisan\\OneDrive\\Masaüstü\\proje\\dotnet-store\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css.map"
+    },
+    {
+      "Id": "C:\\Users\\nisan\\OneDrive\\Masaüstü\\proje\\dotnet-store\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css"
+    },
+    {
+      "Id": "C:\\Users\\nisan\\OneDrive\\Masaüstü\\proje\\dotnet-store\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css.map"
+    },
+    {
+      "Id": "C:\\Users\\nisan\\OneDrive\\Masaüstü\\proje\\dotnet-store\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css"
+    },
+    {
+      "Id": "C:\\Users\\nisan\\OneDrive\\Masaüstü\\proje\\dotnet-store\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css.map"
+    },
+    {
+      "Id": "C:\\Users\\nisan\\OneDrive\\Masaüstü\\proje\\dotnet-store\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css"
+    },
+    {
+      "Id": "C:\\Users\\nisan\\OneDrive\\Masaüstü\\proje\\dotnet-store\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css.map"
+    },
+    {
+      "Id": "C:\\Users\\nisan\\OneDrive\\Masaüstü\\proje\\dotnet-store\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css"
+    },
+    {
+      "Id": "C:\\Users\\nisan\\OneDrive\\Masaüstü\\proje\\dotnet-store\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css.map"
+    },
+    {
+      "Id": "C:\\Users\\nisan\\OneDrive\\Masaüstü\\proje\\dotnet-store\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css"
+    },
+    {
+      "Id": "C:\\Users\\nisan\\OneDrive\\Masaüstü\\proje\\dotnet-store\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css.map"
+    },
+    {
+      "Id": "C:\\Users\\nisan\\OneDrive\\Masaüstü\\proje\\dotnet-store\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css"
+    },
+    {
+      "Id": "C:\\Users\\nisan\\OneDrive\\Masaüstü\\proje\\dotnet-store\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css.map"
+    },
+    {
+      "Id": "C:\\Users\\nisan\\OneDrive\\Masaüstü\\proje\\dotnet-store\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css"
+    },
+    {
+      "Id": "C:\\Users\\nisan\\OneDrive\\Masaüstü\\proje\\dotnet-store\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css.map"
+    },
+    {
+      "Id": "C:\\Users\\nisan\\OneDrive\\Masaüstü\\proje\\dotnet-store\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css"
+    },
+    {
+      "Id": "C:\\Users\\nisan\\OneDrive\\Masaüstü\\proje\\dotnet-store\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css.map"
+    },
+    {
+      "Id": "C:\\Users\\nisan\\OneDrive\\Masaüstü\\proje\\dotnet-store\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css"
+    },
+    {
+      "Id": "C:\\Users\\nisan\\OneDrive\\Masaüstü\\proje\\dotnet-store\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css.map"
+    },
+    {
+      "Id": "C:\\Users\\nisan\\OneDrive\\Masaüstü\\proje\\dotnet-store\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.css"
+    },
+    {
+      "Id": "C:\\Users\\nisan\\OneDrive\\Masaüstü\\proje\\dotnet-store\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.css.map"
+    },
+    {
+      "Id": "C:\\Users\\nisan\\OneDrive\\Masaüstü\\proje\\dotnet-store\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.min.css"
+    },
+    {
+      "Id": "C:\\Users\\nisan\\OneDrive\\Masaüstü\\proje\\dotnet-store\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.min.css.map"
+    },
+    {
+      "Id": "C:\\Users\\nisan\\OneDrive\\Masaüstü\\proje\\dotnet-store\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css"
+    },
+    {
+      "Id": "C:\\Users\\nisan\\OneDrive\\Masaüstü\\proje\\dotnet-store\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css.map"
+    },
+    {
+      "Id": "C:\\Users\\nisan\\OneDrive\\Masaüstü\\proje\\dotnet-store\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css"
+    },
+    {
+      "Id": "C:\\Users\\nisan\\OneDrive\\Masaüstü\\proje\\dotnet-store\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css.map"
+    },
+    {
+      "Id": "C:\\Users\\nisan\\OneDrive\\Masaüstü\\proje\\dotnet-store\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js"
+    },
+    {
+      "Id": "C:\\Users\\nisan\\OneDrive\\Masaüstü\\proje\\dotnet-store\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js.map"
+    },
+    {
+      "Id": "C:\\Users\\nisan\\OneDrive\\Masaüstü\\proje\\dotnet-store\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js"
+    },
+    {
+      "Id": "C:\\Users\\nisan\\OneDrive\\Masaüstü\\proje\\dotnet-store\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js.map"
+    },
+    {
+      "Id": "C:\\Users\\nisan\\OneDrive\\Masaüstü\\proje\\dotnet-store\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js"
+    },
+    {
+      "Id": "C:\\Users\\nisan\\OneDrive\\Masaüstü\\proje\\dotnet-store\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js.map"
+    },
+    {
+      "Id": "C:\\Users\\nisan\\OneDrive\\Masaüstü\\proje\\dotnet-store\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js"
+    },
+    {
+      "Id": "C:\\Users\\nisan\\OneDrive\\Masaüstü\\proje\\dotnet-store\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js.map"
+    },
+    {
+      "Id": "C:\\Users\\nisan\\OneDrive\\Masaüstü\\proje\\dotnet-store\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.js"
+    },
+    {
+      "Id": "C:\\Users\\nisan\\OneDrive\\Masaüstü\\proje\\dotnet-store\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.js.map"
+    },
+    {
+      "Id": "C:\\Users\\nisan\\OneDrive\\Masaüstü\\proje\\dotnet-store\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.min.js"
+    },
+    {
+      "Id": "C:\\Users\\nisan\\OneDrive\\Masaüstü\\proje\\dotnet-store\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.min.js.map"
+    },
+    {
+      "Id": "C:\\Users\\nisan\\OneDrive\\Masaüstü\\proje\\dotnet-store\\wwwroot\\lib\\jquery-validation-unobtrusive\\LICENSE.txt",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation-unobtrusive\\LICENSE.txt"
+    },
+    {
+      "Id": "C:\\Users\\nisan\\OneDrive\\Masaüstü\\proje\\dotnet-store\\wwwroot\\lib\\jquery-validation-unobtrusive\\dist\\jquery.validate.unobtrusive.js",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation-unobtrusive\\dist\\jquery.validate.unobtrusive.js"
+    },
+    {
+      "Id": "C:\\Users\\nisan\\OneDrive\\Masaüstü\\proje\\dotnet-store\\wwwroot\\lib\\jquery-validation-unobtrusive\\dist\\jquery.validate.unobtrusive.min.js",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation-unobtrusive\\dist\\jquery.validate.unobtrusive.min.js"
+    },
+    {
+      "Id": "C:\\Users\\nisan\\OneDrive\\Masaüstü\\proje\\dotnet-store\\wwwroot\\lib\\jquery-validation\\LICENSE.md",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation\\LICENSE.md"
+    },
+    {
+      "Id": "C:\\Users\\nisan\\OneDrive\\Masaüstü\\proje\\dotnet-store\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.js",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation\\dist\\additional-methods.js"
+    },
+    {
+      "Id": "C:\\Users\\nisan\\OneDrive\\Masaüstü\\proje\\dotnet-store\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.min.js",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation\\dist\\additional-methods.min.js"
+    },
+    {
+      "Id": "C:\\Users\\nisan\\OneDrive\\Masaüstü\\proje\\dotnet-store\\wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.js",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation\\dist\\jquery.validate.js"
+    },
+    {
+      "Id": "C:\\Users\\nisan\\OneDrive\\Masaüstü\\proje\\dotnet-store\\wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.min.js",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation\\dist\\jquery.validate.min.js"
+    },
+    {
+      "Id": "C:\\Users\\nisan\\OneDrive\\Masaüstü\\proje\\dotnet-store\\wwwroot\\lib\\jquery\\LICENSE.txt",
+      "PackagePath": "staticwebassets\\lib\\jquery\\LICENSE.txt"
+    },
+    {
+      "Id": "C:\\Users\\nisan\\OneDrive\\Masaüstü\\proje\\dotnet-store\\wwwroot\\lib\\jquery\\dist\\jquery.js",
+      "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.js"
+    },
+    {
+      "Id": "C:\\Users\\nisan\\OneDrive\\Masaüstü\\proje\\dotnet-store\\wwwroot\\lib\\jquery\\dist\\jquery.min.js",
+      "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.min.js"
+    },
+    {
+      "Id": "C:\\Users\\nisan\\OneDrive\\Masaüstü\\proje\\dotnet-store\\wwwroot\\lib\\jquery\\dist\\jquery.min.map",
+      "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.min.map"
+    },
+    {
+      "Id": "C:\\Users\\nisan\\OneDrive\\Masaüstü\\proje\\dotnet-store\\wwwroot\\lib\\jquery\\dist\\jquery.slim.js",
+      "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.slim.js"
+    },
+    {
+      "Id": "C:\\Users\\nisan\\OneDrive\\Masaüstü\\proje\\dotnet-store\\wwwroot\\lib\\jquery\\dist\\jquery.slim.min.js",
+      "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.slim.min.js"
+    },
+    {
+      "Id": "C:\\Users\\nisan\\OneDrive\\Masaüstü\\proje\\dotnet-store\\wwwroot\\lib\\jquery\\dist\\jquery.slim.min.map",
+      "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.slim.min.map"
+    },
+    {
+      "Id": "obj\\Debug\\net9.0\\staticwebassets\\msbuild.build.dotnet-store.props",
+      "PackagePath": "build\\dotnet-store.props"
+    },
+    {
+      "Id": "obj\\Debug\\net9.0\\staticwebassets\\msbuild.buildMultiTargeting.dotnet-store.props",
+      "PackagePath": "buildMultiTargeting\\dotnet-store.props"
+    },
+    {
+      "Id": "obj\\Debug\\net9.0\\staticwebassets\\msbuild.buildTransitive.dotnet-store.props",
+      "PackagePath": "buildTransitive\\dotnet-store.props"
+    },
+    {
+      "Id": "obj\\Debug\\net9.0\\staticwebassets\\msbuild.dotnet-store.Microsoft.AspNetCore.StaticWebAssetEndpoints.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssetEndpoints.props"
+    },
+    {
+      "Id": "obj\\Debug\\net9.0\\staticwebassets\\msbuild.dotnet-store.Microsoft.AspNetCore.StaticWebAssets.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssets.props"
+    }
+  ],
+  "ElementsToRemove": []
+}
