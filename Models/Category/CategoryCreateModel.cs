@@ -12,5 +12,8 @@ public class CategoryCreateModel
     [StringLength(20)]
     [Display(Name = "Url")]
     public string Url { get; set; } = null!;
+    [Required]
+    [Display(Name = "Active")]
+    public bool IsActive { get; set; }
 
 }

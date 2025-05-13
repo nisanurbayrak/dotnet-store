@@ -13,9 +13,15 @@ public class ProductController : Controller
     {
         _context = context;
     }
-    public ActionResult Index()
+    public ActionResult Index(int? category)
     {
-        var products = _context.Products.Select(i => new ProductGetModel
+        var query = _context.Products.AsQueryable();
+        if (category != null)
+        {
+            query = query.Where(i => i.CategoryId == category);
+        }
+
+        var products = query.Select(i => new ProductGetModel
         {
             Id = i.Id,
             ProductName = i.ProductName,
@@ -26,6 +32,8 @@ public class ProductController : Controller
             Stock = i.Stock,
             CategoryName = i.Category.CategoryName ?? "Kategori yok"
         }).ToList();
+        ViewBag.Categories = new SelectList(_context.Categories.ToList(), "Id", "CategoryName", category);
+
         return View(products);
     }
     public ActionResult List(string url, string q)
@@ -95,8 +103,6 @@ public class ProductController : Controller
                 model.IsHome = false;
             }
 
-
-
             var entity = new Product()
             {
                 ProductName = model.ProductName,
@@ -105,7 +111,8 @@ public class ProductController : Controller
                 IsActive = model.IsActive,
                 IsHome = model.IsHome,
                 CategoryId = (int)model.CategoryId!,
-                Image = fileName
+                Image = fileName,
+                Stock = (int)model.Stock!
             };
 
             _context.Products.Add(entity);
@@ -151,7 +158,6 @@ public class ProductController : Controller
 
         ViewBag.Categories = new SelectList(_context.Categories.ToList(), "Id", "CategoryName");
 
-        // Eğer modelin stok değeri 0 ise, aktiflik ve home flag'leri kapalı yapalım.
         if (model.Stock == 0)
         {
             model.IsActive = false;
@@ -164,7 +170,6 @@ public class ProductController : Controller
 
             if (entity != null)
             {
-                // Görsel dosyası yüklendiyse yeni görsel yüklenir.
                 if (model.ImageFile != null)
                 {
                     var fileName = Path.GetRandomFileName() + ".jpg";
@@ -174,20 +179,18 @@ public class ProductController : Controller
                     {
                         await model.ImageFile!.CopyToAsync(stream);
                     }
-                    model.Image = fileName; // Yeni görselin adını modele atıyoruz.
+                    model.Image = fileName;
                 }
                 else
                 {
-                    // Eğer yeni bir görsel yüklenmediyse, eski görsel korunur
                     model.Image = model.Image ?? entity.Image ?? "pho.png";
                 }
 
-                // Diğer alanların güncellenmesi
                 entity.ProductName = model.ProductName;
                 entity.Price = model.Price ?? 0;
                 entity.IsActive = model.IsActive;
                 entity.IsHome = model.IsHome;
-                entity.Image = model.Image; // Görseli güncelliyoruz.
+                entity.Image = model.Image;
                 entity.Stock = model.Stock ?? 0;
                 entity.CategoryId = model.CategoryId;
                 entity.Description = model.Description;
@@ -200,11 +203,10 @@ public class ProductController : Controller
         }
         else
         {
-            // Eğer model geçerli değilse ve eski görseli korumak istiyorsak:
             var oldEntity = _context.Products.FirstOrDefault(p => p.Id == model.Id);
             if (oldEntity != null && string.IsNullOrEmpty(model.Image))
             {
-                model.Image = oldEntity.Image; // Eski görseli model'e atıyoruz
+                model.Image = oldEntity.Image;
             }
 
             ViewBag.Categories = new SelectList(_context.Categories.ToList(), "Id", "CategoryName");
@@ -212,5 +214,117 @@ public class ProductController : Controller
         }
 
         return View(model);
+    }
+
+
+    public IActionResult Delete(int? id)
+    {
+        if (id == null)
+        {
+            return RedirectToAction("Index");
+        }
+        var entity = _context.Products.FirstOrDefault(i => i.Id == id);
+        if (entity == null)
+        {
+            return View("Index");
+        }
+        string message;
+
+        if (entity.Stock > 0)
+        {
+            message = $"{entity.ProductName} ürününün stokta {entity.Stock} adet var. Silmek istediğinizden emin misiniz?";
+            ViewBag.ShowConfirmButton = true;
+        }
+        else if (entity.IsActive || entity.IsHome)
+        {
+            message = $"{entity.ProductName} ürünü sistemde aktif veya ana sayfada. Silinmedi, pasif hale getirildi.";
+            entity.IsActive = false;
+            entity.IsHome = false;
+            _context.SaveChanges();
+
+            TempData["Message"] = message;
+            return RedirectToAction("Index");
+        }
+        else
+        {
+            message = $"{entity.ProductName} ürününü silmek istediğinizden emin misiniz?";
+            ViewBag.ShowConfirmButton = true;
+        }
+
+        ViewBag.DeleteMessage = message;
+        ViewBag.ProductId = entity.Id;
+
+        return View(entity);
+    }
+    [HttpGet]
+    public IActionResult DeleteConfirmPost(int? id)
+    {
+        if (id == null) return RedirectToAction("Index");
+
+        var entity = _context.Products.FirstOrDefault(p => p.Id == id);
+        if (entity == null) return RedirectToAction("Index");
+
+        _context.Products.Remove(entity);
+        _context.SaveChanges();
+
+        TempData["Message"] = $"{entity.ProductName} silindi.";
+        return RedirectToAction("Index");
+    }
+
+    [HttpPost("Product/DeleteConfirmPost")]
+    public IActionResult DeleteConfirm(int? id)
+
+    {
+        var entity = _context.Products.FirstOrDefault(p => p.Id == id);
+        if (entity == null)
+        {
+            return RedirectToAction("Index");
+        }
+
+        _context.Products.Remove(entity);
+        _context.SaveChanges();
+
+        TempData["Message"] = $"'{entity.ProductName}' başarıyla silindi.";
+        return RedirectToAction("Index");
+    }
+
+    [HttpPost]
+    public IActionResult DeleteConfirmed(int id)
+    {
+        var entity = _context.Products.FirstOrDefault(p => p.Id == id);
+        if (entity == null)
+        {
+            TempData["Message"] = "Ürün bulunamadı.";
+            return RedirectToAction("Index");
+        }
+
+        if (entity.Stock > 0)
+        {
+            if (entity.IsActive || entity.IsHome)
+            {
+                entity.IsActive = false;
+                entity.IsHome = false;
+                _context.SaveChanges();
+
+                TempData["Message"] = $"{entity.ProductName} ürünü stokta mevcut ve sistemde aktif/anasayfada. Silinemedi, pasif hale getirildi.";
+                return RedirectToAction("Index");
+            }
+            else
+            {
+                _context.Products.Remove(entity);
+                _context.SaveChanges();
+
+                TempData["Message"] = $"{entity.ProductName} ürünü başarıyla silindi.";
+                return RedirectToAction("Index");
+            }
+        }
+        else
+        {
+            _context.Products.Remove(entity);
+            _context.SaveChanges();
+
+            TempData["Message"] = $"{entity.ProductName} ürünü başarıyla silindi.";
+            return RedirectToAction("Index");
+        }
     }
 }

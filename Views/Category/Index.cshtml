@@ -20,7 +20,9 @@
                                         <th>Kategori Adı</th>
                                         <th>Url</th>
                                         <th>Ürün Sayısı</th>
-                                        <th style="width: 200px;;"></th>
+                                        <th>Aktif</th>
+                                        <th style="width: 200px;"></th>
+                                        
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -34,10 +36,20 @@
                                                 @c.ProductCount
                                             </td>
                                             <td class="text-center">
+
+                                            @if (c.IsActive == true)
+                                            {
+                                            <i class="fa-solid fa-circle-check text-success" style="transform: scale(1.25);"></i>
+                                            } else{
+                                            <i class="fa-solid fa-circle-xmark text-danger" style="transform: scale(1.25);"></i>
+                                            }
+
+                                        </td>
+                                            <td class="text-center">
                                                 <a asp-controller="Category" asp-action="Edit" asp-route-id=@c.Id class="btn btn-primary btn-sm">
                                                     <i class="fa-solid fa-pen-to-square"></i>
                                                 </a>
-                                                <a asp-controller="Category" asp-route-id=@c.Id class="btn btn-primary btn-sm">
+                                                <a asp-controller="Product" asp-route-category=@c.Id class="btn btn-primary btn-sm">
                                                     <i class="fa-solid fa-right-long"></i>
                                                 </a>
                                                 
@@ -46,11 +58,13 @@
                     <i class="fa-solid fa-trash"></i>
                 </a>
 
-                <!-- Gizli Silme Formu (POST olacak) -->
                 <form id="delete-form-@c.Id" method="post" asp-controller="Category" asp-action="DeleteConfirm" style="display:none;">
                     <input type="hidden" name="Id" value="@c.Id" />
                 </form>
                                             </td>
+                                            
+                                             
+
                                         </tr>
                                     }
                                 </tbody>
@@ -61,7 +75,7 @@
             </div>
         </div>
 
-   <!-- Silme Onay Modali -->
+
 <div class="modal fade" id="deleteModal" tabindex="-1" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
@@ -82,20 +96,3 @@
     </div>
   </div>
 </div>
-
-
-@section Scripts {
-    <script>
-  function openDeleteModal(id, name) {
-    // Modaldaki hidden input'a kategori ID'sini yazıyoruz
-    document.getElementById('deleteId').value = id;
-    // Modalda gösterilecek mesajı güncelliyoruz
-    document.getElementById('deleteMessage').textContent = `"${name}" kategorisini silmek üzeresiniz. Bu işlem geri alınamaz.`;
-    
-    // Bootstrap modal'ını gösteriyoruz
-    var modal = new bootstrap.Modal(document.getElementById('deleteModal'));
-    modal.show();
-  }
-</script>
-
-}

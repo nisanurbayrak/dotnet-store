@@ -28,8 +28,8 @@ app.UseRouting();
 
 app.UseAuthorization();
 
-app.MapStaticAssets();
-// app.UseStaticFiles();
+// app.MapStaticAssets();
+app.UseStaticFiles();
 
 app.MapControllerRoute(
     name: "products_by_category",

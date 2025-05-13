@@ -4,7 +4,11 @@
 <nav class="nav nav-pills flex-column flex-nowrap overflow-auto slider_nav">
  
   @foreach(var category in Model){
+    if (category.IsActive == false)
+      continue;
+      else{
     <a href="/products/@category.Url" class="nav-link">@category.CategoryName</a>
+    }
   }
   
 </nav>

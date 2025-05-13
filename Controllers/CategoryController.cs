@@ -19,7 +19,8 @@ public class CategoryController : Controller
             Id = i.Id,
             CategoryName = i.CategoryName,
             Url = i.Url, //buraya yazmazsan gösteremezsin
-            ProductCount = i.Products.Count
+            ProductCount = i.Products.Count,
+            IsActive = i.IsActive
         }).ToList();
         return View(categories);
     }
@@ -38,7 +39,8 @@ public class CategoryController : Controller
             var entity = new Category
             {
                 CategoryName = model.CategoryName,
-                Url = model.Url
+                Url = model.Url,
+                IsActive = model.IsActive
             };
             _context.Categories.Add(entity);
             _context.SaveChanges();
@@ -53,7 +55,8 @@ public class CategoryController : Controller
         {
             Id = i.Id,
             CategoryName = i.CategoryName,
-            Url = i.Url
+            Url = i.Url,
+            IsActive = i.IsActive
         }).FirstOrDefault(i => i.Id == id);
         if (entity == null)
         {
@@ -76,6 +79,7 @@ public class CategoryController : Controller
             {
                 entity.CategoryName = model.CategoryName;
                 entity.Url = model.Url;
+                entity.IsActive = model.IsActive;
 
                 _context.SaveChanges();
                 TempData["Message"] = $"`{entity.CategoryName}` category updated successfully!";
@@ -99,19 +103,35 @@ public class CategoryController : Controller
         return RedirectToAction("Index");
     }
     [HttpPost]
-    public ActionResult DeleteConfirm(int id)
+    public ActionResult DeleteConfirm(int? id)
     {
         if (id == null)
         {
             return RedirectToAction("Index");
         }
-        var entity = _context.Categories.FirstOrDefault(i => i.Id == id);
-        if (entity != null)
+        var entity = _context.Categories
+            .Include(c => c.Products)
+            .FirstOrDefault(c => c.Id == id);
+
+        if (entity.Products.Count > 0 && entity.IsActive == true)
+        {
+            foreach (var product in entity.Products)
+            {
+                product.CategoryId = 1;
+            }
+            entity.IsActive = false;
+            TempData["Message"] = $"`{entity.CategoryName}` kategorisi silinemez. Bu kategoriye ait ürünler var. Kategori durumu pasif yapılabilir.";
+            entity.IsActive = false;
+            _context.SaveChanges();
+            return RedirectToAction("Index");
+        }
+        if (entity != null && (entity.Products.Count == 0 || entity.IsActive == false))
         {
             _context.Categories.Remove(entity);
             _context.SaveChanges();
             TempData["Message"] = $"`{entity.CategoryName}` category deleted successfully!";
         }
+
         return RedirectToAction("Index");
     }
 }

@@ -1,11 +1,3 @@
-C:\Users\nisan\OneDrive\Masaüstü\proje\dotnet-store\obj\Debug\net9.0\dotnet-store.csproj.AssemblyReference.cache
-C:\Users\nisan\OneDrive\Masaüstü\proje\dotnet-store\obj\Debug\net9.0\dotnet-store.GeneratedMSBuildEditorConfig.editorconfig
-C:\Users\nisan\OneDrive\Masaüstü\proje\dotnet-store\obj\Debug\net9.0\dotnet-store.AssemblyInfoInputs.cache
-C:\Users\nisan\OneDrive\Masaüstü\proje\dotnet-store\obj\Debug\net9.0\dotnet-store.AssemblyInfo.cs
-C:\Users\nisan\OneDrive\Masaüstü\proje\dotnet-store\obj\Debug\net9.0\dotnet-store.csproj.CoreCompileInputs.cache
-C:\Users\nisan\OneDrive\Masaüstü\proje\dotnet-store\obj\Debug\net9.0\dotnet-store.MvcApplicationPartsAssemblyInfo.cache
-C:\Users\nisan\OneDrive\Masaüstü\proje\dotnet-store\obj\Debug\net9.0\dotnet-store.RazorAssemblyInfo.cache
-C:\Users\nisan\OneDrive\Masaüstü\proje\dotnet-store\obj\Debug\net9.0\dotnet-store.RazorAssemblyInfo.cs
 C:\Users\nisan\OneDrive\Masaüstü\proje\dotnet-store\bin\Debug\net9.0\appsettings.Development.json
 C:\Users\nisan\OneDrive\Masaüstü\proje\dotnet-store\bin\Debug\net9.0\appsettings.json
 C:\Users\nisan\OneDrive\Masaüstü\proje\dotnet-store\bin\Debug\net9.0\dotnet-store.staticwebassets.runtime.json
@@ -41,6 +33,7 @@ C:\Users\nisan\OneDrive\Masaüstü\proje\dotnet-store\bin\Debug\net9.0\Microsoft
 C:\Users\nisan\OneDrive\Masaüstü\proje\dotnet-store\bin\Debug\net9.0\Microsoft.Extensions.Options.dll
 C:\Users\nisan\OneDrive\Masaüstü\proje\dotnet-store\bin\Debug\net9.0\Microsoft.Extensions.Primitives.dll
 C:\Users\nisan\OneDrive\Masaüstü\proje\dotnet-store\bin\Debug\net9.0\Mono.TextTemplating.dll
+C:\Users\nisan\OneDrive\Masaüstü\proje\dotnet-store\bin\Debug\net9.0\SixLabors.ImageSharp.dll
 C:\Users\nisan\OneDrive\Masaüstü\proje\dotnet-store\bin\Debug\net9.0\SQLitePCLRaw.batteries_v2.dll
 C:\Users\nisan\OneDrive\Masaüstü\proje\dotnet-store\bin\Debug\net9.0\SQLitePCLRaw.core.dll
 C:\Users\nisan\OneDrive\Masaüstü\proje\dotnet-store\bin\Debug\net9.0\SQLitePCLRaw.provider.e_sqlite3.dll
@@ -137,6 +130,15 @@ C:\Users\nisan\OneDrive\Masaüstü\proje\dotnet-store\bin\Debug\net9.0\runtimes\
 C:\Users\nisan\OneDrive\Masaüstü\proje\dotnet-store\bin\Debug\net9.0\runtimes\win-arm64\native\e_sqlite3.dll
 C:\Users\nisan\OneDrive\Masaüstü\proje\dotnet-store\bin\Debug\net9.0\runtimes\win-x64\native\e_sqlite3.dll
 C:\Users\nisan\OneDrive\Masaüstü\proje\dotnet-store\bin\Debug\net9.0\runtimes\win-x86\native\e_sqlite3.dll
+C:\Users\nisan\OneDrive\Masaüstü\proje\dotnet-store\obj\Debug\net9.0\dotnet-store.csproj.AssemblyReference.cache
+C:\Users\nisan\OneDrive\Masaüstü\proje\dotnet-store\obj\Debug\net9.0\dotnet-store.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\nisan\OneDrive\Masaüstü\proje\dotnet-store\obj\Debug\net9.0\dotnet-store.AssemblyInfoInputs.cache
+C:\Users\nisan\OneDrive\Masaüstü\proje\dotnet-store\obj\Debug\net9.0\dotnet-store.AssemblyInfo.cs
+C:\Users\nisan\OneDrive\Masaüstü\proje\dotnet-store\obj\Debug\net9.0\dotnet-store.csproj.CoreCompileInputs.cache
+C:\Users\nisan\OneDrive\Masaüstü\proje\dotnet-store\obj\Debug\net9.0\dotnet-store.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\nisan\OneDrive\Masaüstü\proje\dotnet-store\obj\Debug\net9.0\dotnet-store.RazorAssemblyInfo.cache
+C:\Users\nisan\OneDrive\Masaüstü\proje\dotnet-store\obj\Debug\net9.0\dotnet-store.RazorAssemblyInfo.cs
+C:\Users\nisan\OneDrive\Masaüstü\proje\dotnet-store\obj\Debug\net9.0\dotnet-store.sourcelink.json
 C:\Users\nisan\OneDrive\Masaüstü\proje\dotnet-store\obj\Debug\net9.0\scopedcss\bundle\dotnet-store.styles.css
 C:\Users\nisan\OneDrive\Masaüstü\proje\dotnet-store\obj\Debug\net9.0\compressed\stxxyg6xyu-0e484zamg7.gz
 C:\Users\nisan\OneDrive\Masaüstü\proje\dotnet-store\obj\Debug\net9.0\compressed\gejvkwke1r-i5dw1y35ah.gz
@@ -220,4 +222,3 @@ C:\Users\nisan\OneDrive\Masaüstü\proje\dotnet-store\obj\Debug\net9.0\refint\do
 C:\Users\nisan\OneDrive\Masaüstü\proje\dotnet-store\obj\Debug\net9.0\dotnet-store.pdb
 C:\Users\nisan\OneDrive\Masaüstü\proje\dotnet-store\obj\Debug\net9.0\dotnet-store.genruntimeconfig.cache
 C:\Users\nisan\OneDrive\Masaüstü\proje\dotnet-store\obj\Debug\net9.0\ref\dotnet-store.dll
-C:\Users\nisan\OneDrive\Masaüstü\proje\dotnet-store\bin\Debug\net9.0\SixLabors.ImageSharp.dll

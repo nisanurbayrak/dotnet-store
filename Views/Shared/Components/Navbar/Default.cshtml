@@ -19,9 +19,12 @@
 
         
           @foreach(var item in Model){
+          if (item.IsActive == false)
+          continue;
+          else{
               <li class="nav-item">
                   <a href="/products/@item.Url" class="nav-link ps-0">@item.CategoryName</a>
-              </li>
+              </li>}
           }
         
         </li>
