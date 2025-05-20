@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\nisan\\OneDrive\\Masaüstü\\proje\\dotnet-store\\dotnet-store.csproj": {}
+    "C:\\Users\\nisan\\OneDrive\\Masaüstü\\dotnet-store\\dotnet-store.csproj": {}
   },
   "projects": {
-    "C:\\Users\\nisan\\OneDrive\\Masaüstü\\proje\\dotnet-store\\dotnet-store.csproj": {
+    "C:\\Users\\nisan\\OneDrive\\Masaüstü\\dotnet-store\\dotnet-store.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\nisan\\OneDrive\\Masaüstü\\proje\\dotnet-store\\dotnet-store.csproj",
+        "projectUniqueName": "C:\\Users\\nisan\\OneDrive\\Masaüstü\\dotnet-store\\dotnet-store.csproj",
         "projectName": "dotnet-store",
-        "projectPath": "C:\\Users\\nisan\\OneDrive\\Masaüstü\\proje\\dotnet-store\\dotnet-store.csproj",
+        "projectPath": "C:\\Users\\nisan\\OneDrive\\Masaüstü\\dotnet-store\\dotnet-store.csproj",
         "packagesPath": "C:\\Users\\nisan\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\nisan\\OneDrive\\Masaüstü\\proje\\dotnet-store\\obj\\",
+        "outputPath": "C:\\Users\\nisan\\OneDrive\\Masaüstü\\dotnet-store\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\nisan\\AppData\\Roaming\\NuGet\\NuGet.Config"
@@ -38,7 +38,7 @@
           "auditLevel": "low",
           "auditMode": "direct"
         },
-        "SdkAnalysisLevel": "9.0.200"
+        "SdkAnalysisLevel": "9.0.300"
       },
       "frameworks": {
         "net9.0": {
@@ -78,7 +78,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.202/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.300/PortableRuntimeIdentifierGraph.json"
         }
       }
     }

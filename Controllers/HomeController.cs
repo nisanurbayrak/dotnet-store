@@ -17,4 +17,10 @@ public class HomeController : Controller
         ViewData["Categories"] = _context.Categories.Where(c => c.IsActive == true).ToList();
         return View(products);
     }
+    public IActionResult Deneme()
+    {
+        var list = _context.ProductCategory.ToList(); // ❌ bu satır eksik
+        return View(list);
+    }
+
 }

@@ -1,0 +1,14 @@
+
+@model List<dotnet_store.Models.ProductCategory>
+
+<div class="bg-dark">
+    @foreach (var item in Model)
+    {
+        <div class="text-white">
+            
+        @item.CategoryId
+        @item.ProductId
+</div>
+
+    }
+</div>

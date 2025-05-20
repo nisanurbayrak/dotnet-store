@@ -12,6 +12,7 @@ public class Product
     public string? Description { get; set; }
     public int Stock { get; set; }
 
-    public int CategoryId { get; set; }
-    public Category Category { get; set; } = null!;
+    public Category? Category { get; set; } = null!;
+    public List<ProductCategory> ProductCategories { get; set; } = new();
+
 }

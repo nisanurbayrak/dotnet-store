@@ -81,7 +81,7 @@ namespace dotnet_store.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
-                    b.Property<int>("CategoryId")
+                    b.Property<int?>("CategoryId")
                         .HasColumnType("INTEGER");
 
                     b.Property<string>("Description")
@@ -116,7 +116,6 @@ namespace dotnet_store.Migrations
                         new
                         {
                             Id = 1,
-                            CategoryId = 1,
                             Description = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas a fringilla magna. Duis ullamcorper volutpat nisl ac consequat. Suspendisse in dapibus tortor, at congue tortor.",
                             Image = "1.jpeg",
                             IsActive = true,
@@ -128,7 +127,6 @@ namespace dotnet_store.Migrations
                         new
                         {
                             Id = 2,
-                            CategoryId = 1,
                             Description = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas a fringilla magna. Duis ullamcorper volutpat nisl ac consequat. Suspendisse in dapibus tortor, at congue tortor.",
                             Image = "2.jpeg",
                             IsActive = true,
@@ -140,7 +138,6 @@ namespace dotnet_store.Migrations
                         new
                         {
                             Id = 3,
-                            CategoryId = 2,
                             Description = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas a fringilla magna. Duis ullamcorper volutpat nisl ac consequat. Suspendisse in dapibus tortor, at congue tortor.",
                             Image = "3.jpeg",
                             IsActive = false,
@@ -149,6 +146,27 @@ namespace dotnet_store.Migrations
                             ProductName = "Product 3",
                             Stock = 0
                         });
+                });
+
+            modelBuilder.Entity("dotnet_store.Models.ProductCategory", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER");
+
+                    b.Property<int>("CategoryId")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<int>("ProductId")
+                        .HasColumnType("INTEGER");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("CategoryId");
+
+                    b.HasIndex("ProductId");
+
+                    b.ToTable("ProductCategory");
                 });
 
             modelBuilder.Entity("dotnet_store.Models.Slider", b =>
@@ -210,17 +228,39 @@ namespace dotnet_store.Migrations
             modelBuilder.Entity("dotnet_store.Models.Product", b =>
                 {
                     b.HasOne("dotnet_store.Models.Category", "Category")
-                        .WithMany("Products")
-                        .HasForeignKey("CategoryId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .WithMany()
+                        .HasForeignKey("CategoryId");
 
                     b.Navigation("Category");
                 });
 
+            modelBuilder.Entity("dotnet_store.Models.ProductCategory", b =>
+                {
+                    b.HasOne("dotnet_store.Models.Category", "Category")
+                        .WithMany("ProductCategories")
+                        .HasForeignKey("CategoryId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("dotnet_store.Models.Product", "Product")
+                        .WithMany("ProductCategories")
+                        .HasForeignKey("ProductId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Category");
+
+                    b.Navigation("Product");
+                });
+
             modelBuilder.Entity("dotnet_store.Models.Category", b =>
                 {
-                    b.Navigation("Products");
+                    b.Navigation("ProductCategories");
+                });
+
+            modelBuilder.Entity("dotnet_store.Models.Product", b =>
+                {
+                    b.Navigation("ProductCategories");
                 });
 #pragma warning restore 612, 618
         }

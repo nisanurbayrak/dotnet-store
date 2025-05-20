@@ -37,5 +37,5 @@ public class ProductEditModel
 
     [Required(ErrorMessage = "Category selection is required.")]
     [Display(Name = "Category")]
-    public int CategoryId { get; set; }
+    public List<int> CategoryIds { get; set; } = new();
 }

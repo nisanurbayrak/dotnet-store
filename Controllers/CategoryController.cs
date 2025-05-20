@@ -19,7 +19,7 @@ public class CategoryController : Controller
             Id = i.Id,
             CategoryName = i.CategoryName,
             Url = i.Url, //buraya yazmazsan gösteremezsin
-            ProductCount = i.Products.Count,
+            ProductCount = i.ProductCategories.Count,
             IsActive = i.IsActive
         }).ToList();
         return View(categories);
@@ -110,14 +110,17 @@ public class CategoryController : Controller
             return RedirectToAction("Index");
         }
         var entity = _context.Categories
-            .Include(c => c.Products)
+            .Include(c => c.ProductCategories)
+            .ThenInclude(c => c.Product)
             .FirstOrDefault(c => c.Id == id);
 
-        if (entity.Products.Count > 0 && entity.IsActive == true)
+        var relatedProducts = entity.ProductCategories.Select(pc => pc.Product).ToList();
+
+        if (relatedProducts.Count > 0 && entity.IsActive == true)
         {
-            foreach (var product in entity.Products)
+            foreach (var product in relatedProducts)
             {
-                product.CategoryId = 1;
+                product.Category.Id = 1;
             }
             entity.IsActive = false;
             TempData["Message"] = $"`{entity.CategoryName}` kategorisi silinemez. Bu kategoriye ait ürünler var. Kategori durumu pasif yapılabilir.";
@@ -125,7 +128,7 @@ public class CategoryController : Controller
             _context.SaveChanges();
             return RedirectToAction("Index");
         }
-        if (entity != null && (entity.Products.Count == 0 || entity.IsActive == false))
+        if (entity != null && (relatedProducts.Count == 0 || entity.IsActive == false))
         {
             _context.Categories.Remove(entity);
             _context.SaveChanges();

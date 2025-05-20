@@ -12,9 +12,18 @@ public class DataContext : DbContext
     public DbSet<Product> Products { get; set; } = null!;
     public DbSet<Category> Categories { get; set; } = null!;
     public DbSet<Slider> Sliders { get; set; } = null!;
+    public DbSet<ProductCategory> ProductCategory { get; set; } = null!;
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         base.OnModelCreating(modelBuilder);
+
+        modelBuilder.Entity<ProductCategory>()
+    .HasKey(pc => pc.Id);
+
+        modelBuilder.Entity<ProductCategory>()
+            .Property(pc => pc.Id)
+            .ValueGeneratedOnAdd();
+
 
         modelBuilder.Entity<Slider>().HasData(
             new List<Slider>{
@@ -37,11 +46,11 @@ public class DataContext : DbContext
         modelBuilder.Entity<Product>().HasData(
             new List<Product>() {
 
-                new Product(){Id = 1, ProductName="Product 1", Price=25350, IsActive=true, Image="1.jpeg", Description="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas a fringilla magna. Duis ullamcorper volutpat nisl ac consequat. Suspendisse in dapibus tortor, at congue tortor.", IsHome=true, CategoryId=1},
+                new Product(){Id = 1, ProductName="Product 1", Price=25350, IsActive=true, Image="1.jpeg", Description="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas a fringilla magna. Duis ullamcorper volutpat nisl ac consequat. Suspendisse in dapibus tortor, at congue tortor.", IsHome=true},
 
-                new Product(){Id = 2, ProductName="Product 2", Price=35350, IsActive=true, Image="2.jpeg", Description="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas a fringilla magna. Duis ullamcorper volutpat nisl ac consequat. Suspendisse in dapibus tortor, at congue tortor.", IsHome=false, CategoryId=1},
+                new Product(){Id = 2, ProductName="Product 2", Price=35350, IsActive=true, Image="2.jpeg", Description="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas a fringilla magna. Duis ullamcorper volutpat nisl ac consequat. Suspendisse in dapibus tortor, at congue tortor.", IsHome=false},
 
-                new Product(){Id = 3, ProductName="Product 3", Price=45350, IsActive=false, Image="3.jpeg", Description="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas a fringilla magna. Duis ullamcorper volutpat nisl ac consequat. Suspendisse in dapibus tortor, at congue tortor.", IsHome=true, CategoryId=2},
+                new Product(){Id = 3, ProductName="Product 3", Price=45350, IsActive=false, Image="3.jpeg", Description="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas a fringilla magna. Duis ullamcorper volutpat nisl ac consequat. Suspendisse in dapibus tortor, at congue tortor.", IsHome=true, },
             }
         );
     }

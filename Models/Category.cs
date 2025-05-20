@@ -8,6 +8,5 @@ public class Category
     public string CategoryName { get; set; } = null!;
     public string Url { get; set; } = null!;
     public bool IsActive { get; set; }
-
-    public List<Product> Products { get; set; } = new();
+    public List<ProductCategory> ProductCategories { get; set; } = new();
 }

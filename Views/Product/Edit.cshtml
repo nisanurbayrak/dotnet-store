@@ -56,52 +56,68 @@
                                 </div>
                             </div>
 
-                            <div class="col-md-6">
-                                <label asp-for="CategoryId" class="form-label"></label>
-                                <select asp-for="CategoryId" class="form-select shadow-sm" asp-items="ViewBag.Categories" id="CategoryId">
-                                    <option value="" selected disabled>Seçiniz</option>
-                                </select>
-                                <span asp-validation-for="CategoryId" class="text-danger"></span>
-                            </div>
-                        </div>
 
-                          
+                           <div class="row mb-3">
+                     <div class="mb-3">
+                    <label>Kategoriler</label>
+                     <div class="dropdown">
+                        <button class="btn btn-outline-secondary dropdown-toggle" type="button" id="categoryDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+                            Kategori Seçiniz
+                        </button>
+                        <ul class="dropdown-menu p-3" aria-labelledby="categoryDropdown" style="max-height: 200px; overflow-y: auto;">
+                            @foreach (var category in ViewBag.Categories as IEnumerable<SelectListItem>)
+                            {
+                                <li>
+                                    <div class="form-check">
+                                        <input class="form-check-input category-checkbox" type="checkbox" 
+                                            name="CategoryIds" value="@category.Value" id="cat_@category.Value" />
+                                        <label class="form-check-label" for="cat_@category.Value">@category.Text</label>
+                                    </div>
+                                </li>
+                            }
+                        </ul>
+                    </div>
+                <span asp-validation-for="CategoryIds" class="text-danger"></span>
                 </div>
 
-                <div class="col-md-4">
-    <label asp-for="Image" class="form-label">Görsel</label>
-    <div class="text-center p-3 border rounded shadow-sm bg-light">
-        <!-- Görsel Önizleme -->
-        <img id="imagePreview"
-             src="@(string.IsNullOrEmpty(Model.Image) ? "https://placehold.co/300x200" : Url.Content("~/img/" + Model.Image))"
-             class="img-thumbnail mb-2"
-             style="max-height: 200px;"
-             alt="Görsel Önizleme" />
+                <div class="mt-3">
+                    <label>Seçilen Kategoriler:</label>
+                    <div id="selectedCategories" class="d-flex flex-wrap gap-2">
+                    </div>
+                </div>
 
-        <!-- Gizli input alanı eski görseli taşır -->
-        <input type="hidden" asp-for="Image" />
+</div>      
 
-        <!-- Yükleme alanı -->
-        <input type="file"
-               asp-for="ImageFile"
-               class="form-control shadow-sm"
-               accept="image/*"
-               onchange="previewImage(event)" />
-
-        <span asp-validation-for="ImageFile" class="text-danger"></span>
-    </div>
-
-    <div class="text-end mt-4">
-        <button type="submit" class="btn btn-md btn-primary w-25 shadow-sm">Kaydet</button>
-    </div>
 </div>
-</form>
+            <div class="mt-2" id="selectedCategories" class="d-flex flex-wrap gap-2"></div>
+        </div>
+  
+        
 
+        <div class="col-md-4">
+            <label asp-for="Image" class="form-label">Görsel</label>
+            <div class="text-center p-3 border rounded shadow-sm bg-light">
+                <img id="imagePreview"
+                     src="@(string.IsNullOrEmpty(Model.Image) ? "https://placehold.co/300x200" : Url.Content("~/img/" + Model.Image))"
+                     class="img-thumbnail mb-2"
+                     style="max-height: 200px;"
+                     alt="Görsel Önizleme" />
+
+                <input type="hidden" asp-for="Image" />
+                <input type="file" asp-for="ImageFile" class="form-control shadow-sm" accept="image/*" onchange="previewImage(event)" />
+                <span asp-validation-for="ImageFile" class="text-danger"></span>
+            </div>
+
+            <div class="text-end mt-4">
+                <button type="submit" class="btn btn-primary w-100 shadow-sm">Kaydet</button>
             </div>
         </div>
     </div>
+</form>
 
 @section Scripts {
+    @await Html.PartialAsync("_ValidationScriptsPartial")
+
     <script>
         function previewImage(event) {
             const input = event.target;
@@ -115,7 +131,57 @@
                 reader.readAsDataURL(input.files[0]);
             }
         }
-    </script>     
-    @await Html.PartialAsync("_ValidationScriptsPartial")
 
+        document.addEventListener('DOMContentLoaded', function () {
+            const checkboxes = document.querySelectorAll('.category-checkbox');
+            const selectedContainer = document.getElementById('selectedCategories');
+
+            function createCategoryBadge(id, text) {
+                const badge = document.createElement('div');
+                badge.className = 'badge bg-primary d-flex align-items-center me-2 mb-2';
+                badge.style.padding = '0.5em 0.75em';
+                badge.style.borderRadius = '0.5rem';
+
+                const span = document.createElement('span');
+                span.textContent = text;
+
+                const btn = document.createElement('button');
+                btn.type = 'button';
+                btn.className = 'btn-close btn-close-white btn-sm ms-2';
+                btn.setAttribute('aria-label', 'Remove');
+                btn.addEventListener('click', () => {
+                    const checkbox = document.getElementById(id);
+                    if (checkbox) {
+                        checkbox.checked = false;
+                    }
+                    badge.remove();
+                });
+
+                badge.appendChild(span);
+                badge.appendChild(btn);
+                return badge;
+            }
+
+            function updateSelectedCategories() {
+                selectedContainer.innerHTML = '';
+                checkboxes.forEach(chk => {
+                    if (chk.checked) {
+                        const badge = createCategoryBadge(chk.id, chk.nextElementSibling.textContent);
+                        selectedContainer.appendChild(badge);
+                    }
+                });
+            }
+
+            const selectedIds = @Html.Raw(Json.Serialize(Model.CategoryIds ?? new List<int>()));
+
+            checkboxes.forEach(chk => {
+                if (selectedIds.includes(parseInt(chk.value))) {
+                    chk.checked = true;
+                }
+            });
+
+            updateSelectedCategories();
+            checkboxes.forEach(chk => chk.addEventListener('change', updateSelectedCategories));
+        });
+    </script>
 }

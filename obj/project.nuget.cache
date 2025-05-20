@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "zum1OcII0FE=",
+  "dgSpecHash": "1pKU2NABn+8=",
   "success": true,
-  "projectFilePath": "C:\\Users\\nisan\\OneDrive\\Masaüstü\\proje\\dotnet-store\\dotnet-store.csproj",
+  "projectFilePath": "C:\\Users\\nisan\\OneDrive\\Masaüstü\\dotnet-store\\dotnet-store.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\nisan\\.nuget\\packages\\humanizer.core\\2.14.1\\humanizer.core.2.14.1.nupkg.sha512",
     "C:\\Users\\nisan\\.nuget\\packages\\microsoft.bcl.asyncinterfaces\\7.0.0\\microsoft.bcl.asyncinterfaces.7.0.0.nupkg.sha512",
