@@ -1,0 +1,82 @@
+@model SliderCreateModel 
+@{ Layout = "_AdminLayout"; }
+
+<div class="row">
+  <div class="col">
+    <div class="card shadow">
+      <div
+        class="card-header py-1 d-flex justify-content-between align-items-center"
+      >
+        <h5 class="card-title">Slider Ekle</h5>
+        <a asp-action="Index" class="btn btn-sm btn-primary">
+          <i class="fa-solid fa-list"></i>
+        </a>
+      </div>
+     <div class="card-body">
+  <form method="post" enctype="multipart/form-data">
+    <div class="row">
+      <div class="col-md-8">
+        <div class="mb-3 row">
+          <label asp-for="Title" class="col-sm-2 col-form-label"></label>
+          <div class="col-sm-10">
+            <input asp-for="Title" class="form-control" />
+          </div>
+        </div>
+
+        <div class="mb-3 row">
+          <label asp-for="Description" class="col-sm-2 col-form-label"></label>
+          <div class="col-sm-10">
+            <textarea asp-for="Description" rows="3" class="form-control"></textarea>
+          </div>
+        </div>
+
+        <div class="mb-3 row">
+          <label asp-for="Index" class="col-sm-2 col-form-label"></label>
+          <div class="col-sm-10">
+            <input asp-for="Index" class="form-control" />
+          </div>
+        </div>
+
+        <div class="mb-3 row">
+          <label asp-for="Active" class="col-sm-2 col-form-label"></label>
+          <div class="col-sm-10">
+            <input asp-for="Active" class="form-check-input mt-2" />
+          </div>
+        </div>
+
+         <div class="text-end mt-4">
+          <button type="submit" class="btn btn-md btn-primary w-100 shadow-sm">
+            Kaydet
+          </button>
+        </div>
+      </div>
+
+      <div class="col-md-4">
+        <label asp-for="Image" class="form-label"></label>
+        <div class="text-center p-3 border rounded shadow-sm bg-light">
+          <img
+            id="imagePreview"
+            src="https://placehold.co/300x200"
+            class="img-thumbnail mb-2"
+            style="max-height: 200px"
+            alt="Görsel Önizleme"
+          />
+          <input
+            type="file"
+            asp-for="Image"
+            class="form-control shadow-sm"
+            accept="image/*"
+            onchange="previewImage(event)"
+          />
+          <span asp-validation-for="Image" class="text-danger"></span>
+        </div>
+
+       
+      </div>
+    </div>
+  </form>
+</div>
+
+    </div>
+  </div>
+</div>

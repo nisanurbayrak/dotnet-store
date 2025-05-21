@@ -83,9 +83,6 @@ public class ProductController : Controller
 
         return View((Active: activeProducts, Passive: passiveProducts));
     }
-
-
-
     public ActionResult List(string url, string q)
     {
         var query = _context.Products
@@ -106,7 +103,6 @@ public class ProductController : Controller
 
         return View(query.ToList());
     }
-
     public ActionResult Details(int id)
     {
         var product = _context.Products

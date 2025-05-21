@@ -14,13 +14,9 @@ public class HomeController : Controller
     public ActionResult Index()
     {
         var products = _context.Products.Where(p => p.IsActive && p.IsHome).ToList();
-        ViewData["Categories"] = _context.Categories.Where(c => c.IsActive == true).ToList();
+
+        ViewData["Categories"] = _context.Categories.Where(c => c.IsActive).ToList();
         return View(products);
-    }
-    public IActionResult Deneme()
-    {
-        var list = _context.ProductCategory.ToList(); // ❌ bu satır eksik
-        return View(list);
     }
 
 }

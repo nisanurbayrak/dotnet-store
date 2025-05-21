@@ -1,6 +1,8 @@
 ﻿
 @model List<Product>
-
+@{
+    var categories = (List<Category>)ViewData["Categories"];
+}
 @{
     ViewData["Title"] = "Home Page";
 }
@@ -9,14 +11,10 @@
             <div class="card">
                 <div class="row p-1 p-lg-2 gx-2">
                     <div class="col-lg-3 d-none d-lg-block">
-                        <!-- menu -->
-                        <a asp-controller="Home" asp-action="Deneme" class="btn btn-primary">Deneme Sayfasına Git</a>
-
-                        @await Html.PartialAsync("Partials/Site/_Menu", ViewData["Categories"])
+                    @await Html.PartialAsync("Partials/Site/_Menu", categories)
                         
                     </div>
                     <div class="col-lg-9">
-                        <!-- slider -->
                         @await Component.InvokeAsync("Slider")
                         
                     </div>
