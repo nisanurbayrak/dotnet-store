@@ -18,18 +18,23 @@ public class DataContext : DbContext
         base.OnModelCreating(modelBuilder);
 
         modelBuilder.Entity<ProductCategory>()
-    .HasKey(pc => pc.Id);
+        .HasKey(pc => pc.Id);
 
         modelBuilder.Entity<ProductCategory>()
             .Property(pc => pc.Id)
             .ValueGeneratedOnAdd();
 
+        modelBuilder.Entity<Slider>()
+            .HasOne(s => s.Category)
+            .WithMany(c => c.Sliders)
+            .HasForeignKey(s => s.CategoryId)
+            .OnDelete(DeleteBehavior.Cascade);
 
         modelBuilder.Entity<Slider>().HasData(
             new List<Slider>{
-                new Slider {Id=1, Title="Title 1", Description="Description 1", Index=3, Active=true, Image="slider-1.jpeg"},
-                new Slider {Id=2, Title="Title 2", Description="Description 2", Index=2, Active=true,Image="slider-2.jpeg"},
-                new Slider {Id=3, Title="Title 3", Description="Description 3", Index=1, Active=false,Image="slider-3.jpeg"},
+                new Slider {Id=1, Title="Title 1", Description="Description 1", Index=3, Active=true, Image="slider-1.jpeg", CategoryId=1},
+                new Slider {Id=2, Title="Title 2", Description="Description 2", Index=2, Active=true,Image="slider-2.jpeg", CategoryId=1},
+                new Slider {Id=3, Title="Title 3", Description="Description 3", Index=1, Active=false,Image="slider-3.jpeg", CategoryId=1},
             }
         );
 

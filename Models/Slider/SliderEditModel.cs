@@ -15,4 +15,6 @@ public class SliderEditModel
     public IFormFile? ImageFile { get; set; }
     public bool Active { get; set; }
     public int Index { get; set; }
+    public int CategoryId { get; set; }
+    public Category? Category { get; set; }
 }

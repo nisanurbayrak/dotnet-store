@@ -3,9 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/css/bootstrap.min.css"/>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"  />
+
+     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/admin-lte@3.2/dist/css/adminlte.min.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" rel="stylesheet" />
+    <link href="https://cdn.datatables.net/2.3.1/css/dataTables.dataTables.css" rel="stylesheet" />
+    <link href="https://cdn.datatables.net/1.13.6/css/dataTables.bootstrap5.min.css" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet" />
+
+
     <link rel="stylesheet" href="~/css/admin.css">
+    
     <title>Admin</title>
 </head>
 <body>
@@ -22,63 +30,95 @@
     </main>
 
 
+ <!-- jQuery 3.6.0 -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <!-- Bootstrap 5.3.3 Bundle (includes Popper) -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/js/bootstrap.bundle.min.js"></script>
 
+    <!-- AdminLTE JS -->
+    <script src="https://cdn.jsdelivr.net/npm/admin-lte@3.2/dist/js/adminlte.min.js"></script>
 
-<script src="https://cdn.ckeditor.com/ckeditor5/39.0.1/classic/ckeditor.js"></script>
-<script>
-  ClassicEditor
+    <!-- Bootstrap Switch -->
+    <script src="https://adminlte.io/themes/v3/plugins/bootstrap-switch/js/bootstrap-switch.min.js"></script>
+
+    <!-- CKEditor 5 Classic -->
+    <script src="https://cdn.ckeditor.com/ckeditor5/39.0.1/classic/ckeditor.js"></script>
+
+    <!-- DataTables core + Bootstrap 4 + Responsive + Buttons -->
+    <script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.13.6/js/dataTables.bootstrap5.min.js"></script>
+    <script src="https://cdn.datatables.net/responsive/2.5.0/js/dataTables.responsive.min.js"></script>
+    <script src="https://cdn.datatables.net/responsive/2.5.0/js/responsive.bootstrap5.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/2.4.1/js/dataTables.buttons.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/2.4.1/js/buttons.bootstrap5.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.2.7/pdfmake.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.2.7/vfs_fonts.js"></script>
+    <script src="https://cdn.datatables.net/buttons/2.4.1/js/buttons.html5.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/2.4.1/js/buttons.print.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/2.4.1/js/buttons.colVis.min.js"></script>
+
+
+    <!-- Custom Scripts -->
+   <script>
+        // CKEditor init
+    ClassicEditor
     .create(document.querySelector('#editor'))
     .catch(error => {
         console.error(error);
     });
-</script>
 
-<script>
+    // Image preview (iki farklı fonksiyonun birleşimi)
     function previewImage(event) {
-        const reader = new FileReader();
-        reader.onload = function () {
-            const output = document.getElementById('imagePreview');
-            output.src = reader.result;
-        };
-        reader.readAsDataURL(event.target.files[0]);
+    const reader = new FileReader();
+    reader.onload = function () {
+        const output = document.getElementById('imagePreview');
+        output.src = reader.result;
+    };
+    reader.readAsDataURL(event.target.files[0]);
     }
-</script>
 
-<script>
     function previewImg(event) {
-        const input = event.target;
+    const input = event.target;
 
-        if (input.files && input.files[0]) {
-            const file = input.files[0];
-            const reader = new FileReader();
+    if (input.files && input.files[0]) {
+        const file = input.files[0];
+        const reader = new FileReader();
 
-            reader.onload = function (e) {
-                const preview = document.getElementById('imagePreview');
-                preview.src = e.target.result;
-            };
+        reader.onload = function (e) {
+        const preview = document.getElementById('imagePreview');
+        preview.src = e.target.result;
+        };
 
-            reader.readAsDataURL(file);
+        reader.readAsDataURL(file);
         }
     }
-</script>
 
-<script>
-  function openDeleteModal(id, name) {
+    // Delete Modal açma fonksiyonu
+    function openDeleteModal(id, name) {
     document.getElementById('deleteId').value = id;
     document.getElementById('deleteMessage').textContent = `"${name}" kategorisini silmek üzeresiniz. Bu işlem geri alınamaz.`;
-    
+
     var modal = new bootstrap.Modal(document.getElementById('deleteModal'));
     modal.show();
-  }
-</script>
+    }
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/js/bootstrap.bundle.min.js"></script>
+    // Sayfa hazır olduğunda DataTable init
+    $(document).ready(function () {
+    $('#myTable').DataTable();
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.9.2/umd/popper.min.js" integrity="sha512-2rNj2KJ+D8s1ceNasTIex6z4HWyOnEYLVC3FigGOmyQCZc2eBXKgOxQmo3oKLHyfcj53uz4QMsRCWNbLd32Q1g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/js/bootstrap.min.js"></script>
-@RenderSection("Scripts", required: false)
+    // switch
+    $("input[data-bootstrap-switch]").each(function () {
+        $(this).bootstrapSwitch('state', $(this).prop('checked'));
+    });
 
+    $("input[data-bootstrap-switch]").bootstrapSwitch();
+    });
+    
+   </script>
+
+
+    @RenderSection("Scripts", required: false)
 </body>
 </html>
-

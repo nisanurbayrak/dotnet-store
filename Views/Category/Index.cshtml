@@ -1,98 +1,134 @@
 @model List<CategoryGetModel>
-@{
-    Layout ="_AdminLayout";
-}
-<div class="row">
-            <div class="col">
-                <div class="card shadow">
-                    <div class="card-header py-1 d-flex justify-content-between align-items-center">
-                        <h5 class="card-title">Kategoriler</h5>
-                        <a asp-controller="Category" asp-action="Create" class="btn btn-sm btn-primary">
-                            <i class="fa-solid fa-plus"></i>
-                        </a>
-                    </div>
-                    <div class="card-body">
-                        <div class="table-responsive">
-                            <table class="table table-bordered table-striped mb-0">
-                                <thead class="table-secondary">
-                                    <tr>
-                                        <th>Id</th>
-                                        <th>Kategori Adı</th>
-                                        <th>Url</th>
-                                        <th>Ürün Sayısı</th>
-                                        <th>Aktif</th>
-                                        <th style="width: 200px;"></th>
-                                        
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    @foreach (var c in Model)
-                                    {
-                                        <tr>
-                                            <td>@c.Id</td>
-                                            <td>@c.CategoryName</td>
-                                            <td>@c.Url</td>
-                                            <td>
-                                                @c.ProductCount
-                                            </td>
-                                            <td class="text-center">
-
-                                            @if (c.IsActive == true)
-                                            {
-                                            <i class="fa-solid fa-circle-check text-success" style="transform: scale(1.25);"></i>
-                                            } else{
-                                            <i class="fa-solid fa-circle-xmark text-danger" style="transform: scale(1.25);"></i>
-                                            }
-
-                                        </td>
-                                            <td class="text-center">
-                                                <a asp-controller="Category" asp-action="Edit" asp-route-id=@c.Id class="btn btn-primary btn-sm">
-                                                    <i class="fa-solid fa-pen-to-square"></i>
-                                                </a>
-                                                <a asp-controller="Product" asp-route-category=@c.Id class="btn btn-primary btn-sm">
-                                                    <i class="fa-solid fa-right-long"></i>
-                                                </a>
-                                                
-                                                <a href="javascript:void(0);" class="btn btn-danger btn-sm"
-                   onclick="openDeleteModal(@c.Id, '@c.CategoryName')">
-                    <i class="fa-solid fa-trash"></i>
-                </a>
-
-                <form id="delete-form-@c.Id" method="post" asp-controller="Category" asp-action="DeleteConfirm" style="display:none;">
-                    <input type="hidden" name="Id" value="@c.Id" />
-                </form>
-                                            </td>
-                                            
-                                             
-
-                                        </tr>
-                                    }
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
-                </div>
-            </div>
+  @{ Layout ="_AdminLayout"; }
+  <div class="row">
+    <div class="col">
+      <div class="card shadow-sm border-0 rounded-4">
+        <div class="card-header bg-primary py-2 d-flex justify-content-between align-items-center rounded-top-4">
+          <h5 class="card-title fw-semibold mb-0">Kategoriler</h5>
+          <div class="d-flex ms-auto align-items-center gap-2">
+            <a
+            asp-controller="Category"
+            asp-action="Create"
+            class="btn btn-sm btn-light shadow-sm text-primary custom-btn"
+            >
+            <i class="fa-solid fa-plus"></i>
+            </a>
+          </div>
+          
         </div>
+        <div class="card-body bg-white rounded-bottom-4">
+          <div class="table-responsive overflow-hidden">
+            <table id="myTable" class="table table-hover text-center align-middle">
+              <thead class="table-primary text-primary">
+                <tr>
+                  <th colspan="9" class="fs-5 fw-bold py-2 text-start">Categories</th>
+                </tr>
+                <tr>
+                  <th>Id</th>
+                  <th>Kategori Adı</th>
+                  <th>Url</th>
+                  <th>Ürün Sayısı</th>
+                  <th>Aktif</th>
+                  <th></th>
+                </tr>
+              </thead>
+              <tbody>
+                @foreach (var c in Model) {
+                <tr>
+                  <td class="fw-semibold">@c.Id</td>
+                  <td class="fw-semibold">@c.CategoryName</td>
+                  <td class="fw-medium text-muted">@c.Url</td>
+                  <td class="fw-semibold" >@c.ProductCount</td>
+                  <td class="text-center">
+                    @if (c.IsActive == true) {
+                    <i
+                      class="fa-solid fa-circle-check text-success fs-5"
+                    ></i>
+                    } else{
+                    <i
+                      class="fa-solid fa-circle-xmark text-danger fs-5"
+                    ></i>
+                    }
+                  </td>
+                  <td class="text-center">
+                    <a
+                      asp-controller="Category"
+                      asp-action="Edit"
+                      asp-route-id="@c.Id"
+                      class="btn btn-outline-primary btn-sm me-1" 
+                    >
+                      <i class="fa-solid fa-pen-to-square"></i>
+                    </a>
+                    <a
+                      asp-controller="Product"
+                      asp-route-category="@c.Id"
+                      class="btn btn-outline-primary btn-sm me-1" 
+                    >
+                      <i class="fa-solid fa-right-long"></i>
+                    </a>
 
+                    <a
+                      href="javascript:void(0);"
+                      class="btn btn-outline-danger btn-sm me-1"                       
+                      onclick="openDeleteModal(@c.Id, '@c.CategoryName')"
+                    >
+                      <i class="fa-solid fa-trash"></i>
+                    </a>
 
-<div class="modal fade" id="deleteModal" tabindex="-1" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <form id="deleteForm" method="post" asp-controller="Category" asp-action="DeleteConfirm">
-        <div class="modal-header">
-          <h5 class="modal-title">Silme Onayı</h5>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Kapat"></button>
+                    <form
+                      id="delete-form-@c.Id"
+                      method="post"
+                      asp-controller="Category"
+                      asp-action="DeleteConfirm"
+                      style="display: none"
+                    >
+                      <input type="hidden" name="Id" value="@c.Id" />
+                    </form>
+                  </td>
+                </tr>
+                }
+              </tbody>
+            </table>
+          </div>
         </div>
-        <div class="modal-body">
-          <p id="deleteMessage"></p>
-          <input type="hidden" name="Id" id="deleteId" />
-        </div>
-        <div class="modal-footer">
-          <button type="submit" class="btn btn-danger">Sil</button>
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">İptal</button>
-        </div>
-      </form>
+      </div>
     </div>
   </div>
-</div>
+
+  <div class="modal fade" id="deleteModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content rounded-4 shadow-sm border-0">
+        <form
+          id="deleteForm"
+          method="post"
+          asp-controller="Category"
+          asp-action="DeleteConfirm"
+        >
+          <div class="modal-header">
+            <h5 class="modal-title">Delete Confirmation</h5>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body">
+            <p id="deleteMessage"></p>
+            <input type="hidden" name="Id" id="deleteId" />
+          </div>
+          <div class="modal-footer">
+            <button type="submit" class="btn btn-danger">Delete</button>
+            <button
+              type="button"
+              class="btn btn-secondary"
+              data-bs-dismiss="modal"
+            >
+              Cancel
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+

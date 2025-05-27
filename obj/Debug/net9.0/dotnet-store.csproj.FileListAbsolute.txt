@@ -363,7 +363,6 @@ C:\Users\nisan\OneDrive\Masaüstü\dotnet-store\obj\Debug\net9.0\dotnet-store.Ra
 C:\Users\nisan\OneDrive\Masaüstü\dotnet-store\obj\Debug\net9.0\dotnet-store.RazorAssemblyInfo.cs
 C:\Users\nisan\OneDrive\Masaüstü\dotnet-store\obj\Debug\net9.0\dotnet-store.sourcelink.json
 C:\Users\nisan\OneDrive\Masaüstü\dotnet-store\obj\Debug\net9.0\scopedcss\bundle\dotnet-store.styles.css
-C:\Users\nisan\OneDrive\Masaüstü\dotnet-store\obj\Debug\net9.0\compressed\stxxyg6xyu-0e484zamg7.gz
 C:\Users\nisan\OneDrive\Masaüstü\dotnet-store\obj\Debug\net9.0\compressed\gejvkwke1r-i5dw1y35ah.gz
 C:\Users\nisan\OneDrive\Masaüstü\dotnet-store\obj\Debug\net9.0\compressed\ybqhv9wpbv-vwipl5cvsg.gz
 C:\Users\nisan\OneDrive\Masaüstü\dotnet-store\obj\Debug\net9.0\compressed\48lvmql9bb-wqhl0zxvjx.gz
@@ -440,3 +439,4 @@ C:\Users\nisan\OneDrive\Masaüstü\dotnet-store\obj\Debug\net9.0\refint\dotnet-s
 C:\Users\nisan\OneDrive\Masaüstü\dotnet-store\obj\Debug\net9.0\dotnet-store.pdb
 C:\Users\nisan\OneDrive\Masaüstü\dotnet-store\obj\Debug\net9.0\dotnet-store.genruntimeconfig.cache
 C:\Users\nisan\OneDrive\Masaüstü\dotnet-store\obj\Debug\net9.0\ref\dotnet-store.dll
+C:\Users\nisan\OneDrive\Masaüstü\dotnet-store\obj\Debug\net9.0\compressed\stxxyg6xyu-xbivlnqbx9.gz

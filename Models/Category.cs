@@ -9,4 +9,5 @@ public class Category
     public string Url { get; set; } = null!;
     public bool IsActive { get; set; }
     public List<ProductCategory> ProductCategories { get; set; } = new();
+    public List<Slider> Sliders { get; set; } = new();
 }

@@ -1,14 +1,38 @@
+@{
+    ViewData["Title"] = "Deneme";
+}
 
-@model List<dotnet_store.Models.ProductCategory>
-
-<div class="bg-dark">
-    @foreach (var item in Model)
-    {
-        <div class="text-white">
-            
-        @item.CategoryId
-        @item.ProductId
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <title>Basit Switch Animasyon</title>
+    <link rel="stylesheet" href="https://adminlte.io/themes/v3/dist/css/adminlte.min.css">
+    <link rel="stylesheet" href="https://adminlte.io/themes/v3/plugins/icheck-bootstrap/icheck-bootstrap.min.css">
+    <style>
+        .bootstrap-switch .bootstrap-switch-handle-on,
+        .bootstrap-switch .bootstrap-switch-handle-off {
+            transition: transform 0.3s ease;
+        }
+        .bootstrap-switch-on .bootstrap-switch-handle-on,
+        .bootstrap-switch-off .bootstrap-switch-handle-off {
+            transform: scale(1.2);
+        }
+    </style>
+</head>
+<body>
+<div class="container mt-5">
+    <h4>Basit Animasyonlu Switch</h4>
+    <input type="checkbox" checked data-bootstrap-switch>
 </div>
 
-    }
-</div>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://adminlte.io/themes/v3/plugins/bootstrap-switch/js/bootstrap-switch.min.js"></script>
+<script>
+    $(function () {
+        $("input[data-bootstrap-switch]").bootstrapSwitch();
+    });
+</script>
+</body>
+</html>

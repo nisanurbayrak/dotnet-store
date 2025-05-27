@@ -1,234 +1,144 @@
-@model (List<ProductGetModel> Active, List<ProductGetModel> Passive)
+@model List<ProductGetModel>
 @{
     Layout = "_AdminLayout";
 }
 
 <div class="row">
-    <div class="col">
-        <div class="card shadow">
-            <div class="card-header py-1 d-flex justify-content-between align-items-center">
-                <h5 class="card-title mb-0">Ürünler</h5>
-                <div class="d-flex gap-2">
-                    <a asp-controller="Product" asp-action="Create" class="btn btn-sm btn-primary">
+    <div class="col-12">
+        <div class="card shadow-sm border-0 rounded-4">
+            <div class="card-header d-flex justify-content-between align-items-center">
+                <span>Products</span>
+                <div class="d-flex gap-3 ms-auto">
+                    <a asp-controller="Product" asp-action="Create" class="btn btn-custom" title="Add New Product">
                         <i class="fa-solid fa-plus"></i>
                     </a>
-                    <a asp-controller="Product" asp-action="List" class="btn btn-sm btn-outline-primary">
-                        <i class="fa-solid fa-list"></i> Product List
+                    <a asp-controller="Product" asp-action="List" class="btn btn-custom" title="View Product List">
+                        <i class="fa-solid fa-list"></i> List
                     </a>
                 </div>
             </div>
 
-            <div class="card-body">
-                <form method="get">
-                    <div class="input-group mb-2">
+            <div class="card-body bg-white rounded-bottom-4">
+                <form method="get" class="mt-3">
+                    <div class="input-group">
                         <select name="category" class="form-select" asp-items="ViewBag.Categories">
-                            <option value="" selected>Tüm Kategoriler</option>
+                            <option value="" selected>All Categories</option>
                         </select>
                         <button class="btn btn-outline-secondary" type="submit">
                             <i class="fa-solid fa-filter"></i>
+                        </button>
                     </div>
                 </form>
-@if (Model.Active.Count == 0 && Model.Passive.Count == 0){
-                    <div class="alert alert-warning text-center">
-                        <strong>Ürün Bulunamadı!</strong>
-                    </div>
+                <div class="card-body bg-white rounded-bottom-4">
+                @if (Model.Count == 0){
+                        <div class="alert alert-warning text-center fw-semibold mb-0">
+                            <strong>No Products Found!</strong>
+                        </div>
                 } else
-{
-    <div class="table-responsive">
-<table class="table table-bordered table-hover table-striped mb-4">
-    <thead class="table-secondary">
-        <tr>
-            <td colspan="9"><h5>Aktif Ürünler</h5></td>
-        </tr>
-        <tr>
-            <th style="width: 20px">Id</th>
-            <th style="width: 80px">Resim</th>
-            <th>Ürün Adı</th>
-            <th>Fiyat</th>
-            <th>Aktif</th>
-            <th>Anasayfa</th>
-            <th>Kategori</th>
-            <th>Stok</th>
-            <th style="width:fit-content"></th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (var p in Model.Active)
-        {
-            <tr>
-                <td>@p.Id</td>
-                <td><img src="img/@p.Image" class="img-fluid" alt="" /></td>
-                <td>@p.ProductName</td>
-                <td>@p.Price ₺</td>
-                <td>
-                    <i class="fa-solid @(p.IsActive ? "fa-circle-check text-success" : "fa-circle-xmark text-danger")"></i>
-                </td>
-                <td>
-                    <i class="fa-solid @(p.IsHome ? "fa-circle-check text-success" : "fa-circle-xmark text-danger")"></i>
-                </td>
-                <td>@p.CategoryName</td>
-                <td>@p.Stock</td>
-                <td class="text-center">
-                    <a asp-controller="Product" asp-action="Edit" asp-route-id="@p.Id" class="btn btn-primary btn-sm">
-                        <i class="fa-solid fa-pen-to-square"></i>
-                    </a>
-                    <a href="javascript:void(0);" class="btn btn-danger btn-sm" onclick="openDeleteModal(@p.Id, '@p.ProductName', @p.Stock)">
-                        <i class="fa-solid fa-trash"></i>
-                    </a>
-                </td>
-            </tr>
-        }
-    </tbody>
-</table>
-
-<div class="d-flex justify-content-center mb-4">
-  <nav aria-label="Page navigation">
-    <ul class="pagination">
-      <li class="page-item @(ViewBag.ActivePageIndex > 1 ? "" : "disabled")">
-        <a class="page-link" href="@Url.Action("Index", new { category = ViewBag.SelectedCategory, activePageNumber = ViewBag.ActivePageIndex - 1, passivePageNumber = ViewBag.PassivePageIndex })" tabindex="-1" aria-disabled="@(ViewBag.ActivePageIndex <= 1)">
-          &laquo; Önceki
-        </a>
-      </li>
-
-      @for (int i = 1; i <= ViewBag.ActiveTotalPages; i++)
-      {
-        <li class="page-item @(i == ViewBag.ActivePageIndex ? "active" : "")" aria-current="@(i == ViewBag.ActivePageIndex ? "page" : null)">
-          <a class="page-link" href="@Url.Action("Index", new { activePageNumber = i, passivePageNumber = ViewBag.PassivePageIndex, category = ViewBag.SelectedCategory })">@i</a>
-        </li>
-      }
-
-      <li class="page-item @(ViewBag.ActivePageIndex < ViewBag.ActiveTotalPages ? "" : "disabled")">
-        <a class="page-link" href="@Url.Action("Index", new { category = ViewBag.SelectedCategory, activePageNumber = ViewBag.ActivePageIndex + 1, passivePageNumber = ViewBag.PassivePageIndex })" aria-disabled="@(ViewBag.ActivePageIndex >= ViewBag.ActiveTotalPages)">
-          Sonraki &raquo;
-        </a>
-      </li>
-    </ul>
-  </nav>
-</div>
-
-
-
-<table class="table table-bordered table-hover table-striped mb-4">
-    <thead class="table-secondary">
-        <tr>
-            <td colspan="9"><h5>Aktif Olmayan Ürünler</h5></td>
-        </tr>
-        <tr>
-            <th style="width: 20px">Id</th>
-            <th style="width: 80px">Resim</th>
-            <th>Ürün Adı</th>
-            <th>Fiyat</th>
-            <th>Aktif</th>
-            <th>Anasayfa</th>
-            <th>Kategori</th>
-            <th>Stok</th>
-            <th style="width:fit-content"></th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (var p in Model.Passive)
-        {
-            <tr>
-                <td>@p.Id</td>
-                <td><img src="img/@p.Image" class="img-fluid" alt="" /></td>
-                <td>@p.ProductName</td>
-                <td>@p.Price ₺</td>
-                <td>
-                    <i class="fa-solid @(p.IsActive ? "fa-circle-check text-success" : "fa-circle-xmark text-danger")"></i>
-                </td>
-                <td>
-                    <i class="fa-solid @(p.IsHome ? "fa-circle-check text-success" : "fa-circle-xmark text-danger")"></i>
-                </td>
-                <td>@p.CategoryName</td>
-                <td>@p.Stock</td>
-                <td class="text-center">
-                    <a asp-controller="Product" asp-action="Edit" asp-route-id="@p.Id" class="btn btn-primary btn-sm">
-                        <i class="fa-solid fa-pen-to-square"></i>
-                    </a>
-                    <a href="javascript:void(0);" class="btn btn-danger btn-sm" onclick="openDeleteModal(@p.Id, '@p.ProductName', @p.Stock)">
-                        <i class="fa-solid fa-trash"></i>
-                    </a>
-                </td>
-            </tr>
-        }
-    </tbody>
-</table>
-
-<div class="d-flex justify-content-center mb-4">
-  <nav aria-label="Page navigation">
-    <ul class="pagination">
-      <li class="page-item @(ViewBag.PassivePageIndex > 1 ? "" : "disabled")">
-        <a class="page-link" href="@Url.Action("Index", new { category = ViewBag.SelectedCategory, passivePageNumber = ViewBag.PassivePageIndex - 1, activePageNumber = ViewBag.ActivePageIndex })" tabindex="-1" aria-disabled="@(ViewBag.PassivePageIndex <= 1)">
-          &laquo; Önceki
-        </a>
-      </li>
-
-      @for (int i = 1; i <= ViewBag.PassiveTotalPages; i++)
-      {
-        <li class="page-item @(i == ViewBag.PassivePageIndex ? "active" : "")" aria-current="@(i == ViewBag.PassivePageIndex ? "page" : null)">
-          <a class="page-link" href="@Url.Action("Index", new { category = ViewBag.SelectedCategory, passivePageNumber = i, activePageNumber = ViewBag.ActivePageIndex })">@i</a>
-        </li>
-      }
-
-      <li class="page-item @(ViewBag.PassivePageIndex < ViewBag.PassiveTotalPages ? "" : "disabled")">
-        <a class="page-link" href="@Url.Action("Index", new { category = ViewBag.SelectedCategory, passivePageNumber = ViewBag.PassivePageIndex + 1, activePageNumber = ViewBag.ActivePageIndex })" aria-disabled="@(ViewBag.PassivePageIndex >= ViewBag.PassiveTotalPages)">
-          Sonraki &raquo;
-        </a>
-      </li>
-    </ul>
-  </nav>
-</div>
-
-
-    </div>
+                {
+                <div class="table-responsive">
+                    <table id="productTable">
+                        <thead>
+                            <tr>
+                                   <th>ID</th>
+                                    <th>Image</th>
+                                    <th>Product Name</th>
+                                    <th>Price</th>
+                                    <th>Active</th>
+                                    <th>Home Page</th>
+                                    <th>Category</th>
+                                    <th>Stock</th>
+                                    <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var p in Model)
+                            {
+                                if (!p.IsActive) continue;
+                                else {
+                                <tr class="align-middle">
+                                    <td  class="fw-semibold">@p.Id</td>
+                                    <td>
+                                        @if (!string.IsNullOrEmpty(p.Image))
+                                        {
+                                            <img src="~/img/@p.Image" alt="@p.ProductName" />
+                                        }
+                                        else
+                                        {
+                                            <img src="img/pho.png" alt="@p.ProductName" />
+                                        }
+                                    </td>
+                                    <td   class="fw-semibold text-start">@p.ProductName</td>
+                                    <td   class="fw-semibold text-success">@p.Price.ToString("N2") ₺</td>
+                                         <td>
+                                            <i class="fa-solid status-icon @(p.IsActive ? "fa-circle-check status-active" : "fa-circle-xmark status-passive")" title="Is Active"></i>
+                                        </td>
+                                        <td>
+                                            <i asp-for="IsHome" class="fa-solid status-icon @(p.IsHome ? "fa-circle-check status-active" : "fa-circle-xmark status-passive")" title="On Home Page"></i>
+                                        </td>
+                                    <td  class="category-name">@p.CategoryName</td>
+                                    <td  class="stock-count">@p.Stock</td>
+                                    <td>
+                                        <a asp-controller="Product" asp-action="Edit" asp-route-id="@p.Id" class="btn btn-outline-primary btn-sm me-1">
+                                            <i class="fa-solid fa-pen-to-square"></i>
+                                        </a>
+                                        <a href="javascript:void(0);" class="btn btn-outline-danger btn-sm" onclick="openDeleteModal(@p.Id, '@p.ProductName', @p.Stock)">
+                                            <i class="fa-solid fa-trash"></i>
+                                        </a>
+                                    </td>
+                                </tr>
+                            }}
+                        </tbody>
+                    </table>
+                </div>
 }
-
-               
             </div>
         </div>
     </div>
 </div>
 
 <div id="deleteModal" class="modal fade" tabindex="-1" aria-labelledby="deleteModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content rounded-4 shadow-sm border-0">
             <div class="modal-header">
-                <h5 class="modal-title" id="deleteModalLabel">Silme Onayı</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                <h5 class="modal-title" id="deleteModalLabel">Delete Confirmation</h5>
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                <p id="deleteMessage"></p>
+                <p id="deleteMessage" style="font-weight: 600; font-size: 1.1rem;"></p>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">İptal</button>
-                <button type="button" class="btn btn-warning" onclick="confirmDelete()">Evet</button>
+                <button type="button" class="btn btn-secondary fw-semibold" data-bs-dismiss="modal">Cancel</button>
+                <button type="button" class="btn btn-danger fw-semibold" onclick="confirmDelete()">Delete</button>
             </div>
         </div>
     </div>
 </div>
 
 <div id="confirmDeleteModal" class="modal fade" tabindex="-1" aria-labelledby="confirmDeleteModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content rounded-4 shadow-sm border-0">
             <div class="modal-header">
-                <h5 class="modal-title" id="confirmDeleteModalLabel">Silme Onayı - İkinci Adım</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                <h5 class="modal-title" id="confirmDeleteModalLabel">Delete Confirmation - Final Step</h5>
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                <p id="confirmDeleteMessage"></p>
+                <p id="confirmDeleteMessage" style="font-weight: 600; font-size: 1.1rem;"></p>
             </div>
             <div class="modal-footer">
                 <form method="post" asp-action="DeleteConfirmed" id="deleteForm">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">İptal</button>
-                    <button type="submit" class="btn btn-danger">Evet, Sil</button>
+                    <button type="button" class="btn btn-secondary fw-semibold" data-bs-dismiss="modal">Cancel</button>
+                    <button type="submit" class="btn btn-danger fw-semibold">Delete</button>
                 </form>
             </div>
         </div>
     </div>
 </div>
 
+ 
 @section Scripts{
-<script>
+    
+    <script>
     let deleteId = null;
 
     function openDeleteModal(id, name, stock) {
@@ -255,5 +165,82 @@
 
         document.getElementById('deleteForm').action = '/Product/DeleteConfirmed/' + deleteId;
     }
-</script>
-}
+
+
+$('#productTable').DataTable({
+    language: {
+        url: "//cdn.datatables.net/plug-ins/1.13.6/i18n/Turkish.json"
+    },
+    dom: "<'row my-3'<'col-sm-12 col-md-6'B><'col-sm-12 col-md-6'f>>" +
+         "rt" +
+         "<'row mt-3'<'col-sm-12 col-md-5'l><'col-sm-12 col-md-7'p>>",
+    buttons: [
+        {
+            extend: 'copyHtml5',
+            exportOptions: {
+                columns: ':not(:last-child)',
+                format: {
+                    body: function(data, row, column, node) {
+                        // Aktif ve Home durumlarını kontrol et
+                        if (column === 4 || column === 5) {
+                            return node.querySelector('i').classList.contains('fa-circle-check') ? '+' : '-';
+                        }
+                        return data;
+                    }
+                }
+            }
+        },
+        {
+            extend: 'excelHtml5',
+            exportOptions: {
+                columns: ':not(:last-child)',
+                format: {
+                    body: function(data, row, column, node) {
+                        if (column === 4 || column === 5) {
+                            return node.querySelector('i').classList.contains('fa-circle-check') ? '+' : '-';
+                        }
+                        return data;
+                    }
+                }
+            }
+        },
+        {
+            extend: 'pdfHtml5',
+            exportOptions: {
+                columns: ':not(:last-child)',
+                format: {
+                    body: function(data, row, column, node) {
+                        if (column === 4 || column === 5) {
+                            return node.querySelector('i').classList.contains('fa-circle-check') ? '+' : '-';
+                        }
+                        return data;
+                    }
+                }
+            }
+        },
+        {
+            extend: 'print',
+            exportOptions: {
+                columns: ':not(:last-child)',
+                format: {
+                    body: function(data, row, column, node) {
+                        if (column === 4 || column === 5) {
+                            return node.querySelector('i').classList.contains('fa-circle-check') ? '+' : '-';
+                        }
+                        return data;
+                    }
+                }
+            }
+        },
+        'colvis'
+    ],
+    columnDefs: [
+        {
+            targets: -1, // Actions sütunu
+            orderable: false,
+            searchable: false
+        }
+    ]
+});
+
+</script>}

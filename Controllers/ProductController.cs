@@ -14,27 +14,20 @@ public class ProductController : Controller
         _context = context;
     }
 
-    public async Task<ActionResult> Index(int? category, int activePageNumber = 1, int passivePageNumber = 1)
+    public async Task<ActionResult> Index(int? category)
     {
-        int pageSize = 5;
-
-        // Aktif ürün sorgusu
-        var activeQuery = _context.Products
-            .Include(p => p.Category)
+        var productsQuery = _context.Products
+            .Include(p => p.ProductCategories)
+            .ThenInclude(pc => pc.Category)
             .Where(p => p.IsActive);
 
         if (category.HasValue)
         {
-            activeQuery = activeQuery.Where(p => p.ProductCategories.Any(pc => pc.CategoryId == category));
+            productsQuery = productsQuery
+                .Where(p => p.ProductCategories.Any(pc => pc.CategoryId == category.Value));
         }
 
-        var activeTotalCount = await activeQuery.CountAsync();
-        var activeTotalPages = (int)Math.Ceiling(activeTotalCount / (double)pageSize);
-
-        var activeProducts = await activeQuery
-            .OrderByDescending(p => p.Id)
-            .Skip((activePageNumber - 1) * pageSize)
-            .Take(pageSize)
+        var products = await productsQuery
             .Select(p => new ProductGetModel
             {
                 Id = p.Id,
@@ -42,47 +35,28 @@ public class ProductController : Controller
                 Price = p.Price ?? 0,
                 IsActive = p.IsActive,
                 IsHome = p.IsHome,
+                CategoryName = p.ProductCategories.FirstOrDefault().Category.CategoryName ?? "No Category",
                 Stock = p.Stock,
-                Image = p.Image,
-                CategoryName = p.ProductCategories.Select(pc => pc.Category.CategoryName).FirstOrDefault()
+                Image = p.Image
             })
             .ToListAsync();
 
-        // Pasif ürün sorgusu
-        var passiveQuery = _context.Products
-            .Include(p => p.Category)
-            .Where(p => !p.IsActive);
+        ViewBag.Categories = new SelectList(await _context.Categories.ToListAsync(), "Id", "CategoryName", category);
 
-        var passiveTotalCount = await passiveQuery.CountAsync();
-        var passiveTotalPages = (int)Math.Ceiling(passiveTotalCount / (double)pageSize);
+        string selectedCategoryName = "All Categories";
+        if (category.HasValue)
+        {
+            selectedCategoryName = await _context.Categories
+                .Where(c => c.Id == category.Value)
+                .Select(c => c.CategoryName)
+                .FirstOrDefaultAsync() ?? "Unknown Category";
+        }
 
-        var passiveProducts = await passiveQuery
-            .OrderByDescending(p => p.Id)
-            .Skip((passivePageNumber - 1) * pageSize)
-            .Take(pageSize)
-            .Select(p => new ProductGetModel
-            {
-                Id = p.Id,
-                ProductName = p.ProductName,
-                Price = p.Price ?? 0,
-                IsActive = p.IsActive,
-                IsHome = p.IsHome,
-                Stock = p.Stock,
-                Image = p.Image,
-                CategoryName = p.ProductCategories.Select(pc => pc.Category.CategoryName).FirstOrDefault()
-            })
-            .ToListAsync();
+        ViewBag.SelectedCategoryName = selectedCategoryName;
 
-        ViewBag.ActivePageIndex = activePageNumber;
-        ViewBag.ActiveTotalPages = activeTotalPages;
-
-        ViewBag.PassivePageIndex = passivePageNumber;
-        ViewBag.PassiveTotalPages = passiveTotalPages;
-
-        ViewBag.SelectedCategory = category;
-
-        return View((Active: activeProducts, Passive: passiveProducts));
+        return View(products);
     }
+
     public ActionResult List(string url, string q)
     {
         var query = _context.Products
@@ -405,4 +379,28 @@ public class ProductController : Controller
             return RedirectToAction("Index");
         }
     }
+
+    [HttpGet]
+    public async Task<ActionResult> NonActiveProduct(int? category)
+    {
+        var products = await _context.Products
+        .Include(p => p.ProductCategories)
+        .ThenInclude(pc => pc.Category)
+        .Where(p => !p.IsActive)
+        .Select(p => new ProductGetModel
+        {
+            Id = p.Id,
+            ProductName = p.ProductName,
+            Price = p.Price ?? 0,
+            IsActive = p.IsActive,
+            IsHome = p.IsHome,
+            CategoryName = p.ProductCategories.FirstOrDefault().Category.CategoryName ?? "Kategori Yok",
+            Stock = p.Stock,
+            Image = p.Image
+        })
+        .ToListAsync();
+
+        return View(products);
+    }
+
 }

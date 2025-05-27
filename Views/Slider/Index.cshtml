@@ -8,13 +8,13 @@
         <div class="card shadow">
             <div class="card-header py-1 d-flex justify-content-between align-items-center">
                 <h5 class="card-title">Sliderlar</h5>
-                <a asp-action="Create" class="btn btn-sm btn-primary">
+                <a asp-action="Create" class="btn btn-sm btn-primary d-flex ms-auto align-items-center">
                     <i class="fa-solid fa-plus"></i>
                 </a>
             </div>
             <div class="card-body">
                 <div class="table-responsive">
-                    <table class="table table-bordered table-hover table-striped mb-0">
+                 <table id="myTable" class="display">
                         <thead class="table-secondary">
                             <tr>
                                 <th style="width: 20px;">Id</th>
@@ -46,10 +46,10 @@
                                     </td>
                                     <td>@item.Index</td>
                                     <td>
-                                        <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-primary btn-sm">
+                                        <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-primary btn-sm" >
                                             <i class="fa-solid fa-pen-to-square"></i>
                                         </a>
-                                        <a asp-action="Delete" asp-route-id="@item.Id" class="btn btn-danger btn-sm">
+                                        <a href="#" class="btn btn-danger btn-sm" onclick="openDeleteModal(@item.Id, '@item.Title')">
                                             <i class="fa-solid fa-trash"></i>
                                         </a>
                                     </td>
@@ -62,3 +62,42 @@
         </div>
     </div>
 </div>
+
+<div id="deleteModal" class="modal fade" tabindex="-1" aria-labelledby="deleteModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+<form id="deleteForm" method="post" asp-action="Delete">
+                @Html.AntiForgeryToken()
+                <input type="hidden" id="deleteIdInput" name="id" />
+
+                <div class="modal-header">
+                    <h5 class="modal-title" id="deleteModalLabel">Silme Onayı</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <p id="deleteMessage"></p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">İptal</button>
+                    <button type="submit" class="btn btn-warning">Evet</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+
+
+@section Scripts {
+    <script>
+    function openDeleteModal(id, title) {
+        document.getElementById('deleteMessage').innerText = `${title} adlı sliderı silmek istediğinize emin misiniz?`;
+        document.getElementById('deleteIdInput').value = id;
+
+        var deleteModal = new bootstrap.Modal(document.getElementById('deleteModal'));
+        deleteModal.show();
+    }
+    </script>
+
+
+}

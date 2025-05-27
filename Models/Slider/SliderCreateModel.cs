@@ -12,4 +12,6 @@ public class SliderCreateModel
     public IFormFile? Image { get; set; }
     public bool Active { get; set; }
     public int Index { get; set; }
+    public int CategoryId { get; set; }
+
 }

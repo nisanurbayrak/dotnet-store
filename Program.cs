@@ -23,19 +23,22 @@ if (!app.Environment.IsDevelopment())
     app.UseHsts();
 }
 
+
 app.UseHttpsRedirection();
+
+app.UseStaticFiles();
+
 app.UseRouting();
 
 app.UseAuthorization();
 
 // app.MapStaticAssets();
-app.UseStaticFiles();
 
-app.MapControllerRoute(
-    name: "products_by_category",
-    pattern: "products/{url?}",
-    defaults: new { controller = "Product", action = "List" })
-    .WithStaticAssets();
+// app.MapControllerRoute(
+//     name: "products_by_category",
+//     pattern: "products/{url?}",
+//     defaults: new { controller = "Product", action = "List" })
+//     .WithStaticAssets();
 
 
 app.MapControllerRoute(

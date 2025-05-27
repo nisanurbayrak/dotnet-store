@@ -1,11 +1,13 @@
-﻿
-@model List<Product>
+﻿@model List<Product>
 @{
-    var categories = (List<Category>)ViewData["Categories"];
+    var categories = (List<Category>)ViewBag.Categories;
+    var sliders = (List<dotnet_store.Models.Slider>)ViewBag.Sliders;
 }
+
 @{
     ViewData["Title"] = "Home Page";
 }
+<a class="btn btn-primary" asp-action="Deneme" asp-controller="Home">Test</a>
     <section class="mt-3">
         <div class="container">
             <div class="card">

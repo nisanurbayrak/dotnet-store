@@ -1,5 +1,7 @@
 using dotnet_store.Models;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
+using Microsoft.EntityFrameworkCore;
 
 namespace dotnet_store.Controllers;
 
@@ -23,11 +25,17 @@ public class SliderController : Controller
     }
     public ActionResult Create()
     {
+        var categories = _context.Categories.ToList();
+        ViewBag.Categories = new SelectList(categories, "Id", "CategoryName");
+
         return View();
     }
     [HttpPost]
     public async Task<ActionResult> Create(SliderCreateModel model)
     {
+        var categories = _context.Categories.ToList();
+        ViewBag.Categories = new SelectList(categories, "Id", "CategoryName");
+
         if (ModelState.IsValid)
         {
             var fileName = model.Image != null
@@ -63,7 +71,9 @@ public class SliderController : Controller
             _context.SaveChanges();
             return RedirectToAction("Index");
         }
-        return View(model);
+
+
+        return View();
     }
 
     public async Task<ActionResult> Edit(int id)
@@ -79,6 +89,10 @@ public class SliderController : Controller
         .Where(i => i.Id != id && i.Index >= newIndex)
         .OrderBy(i => i.Index)
         .ToList();
+
+        var categories = _context.Categories.ToList();
+        ViewBag.Categories = new SelectList(categories, "Id", "CategoryName");
+
 
         var model = new SliderEditModel
         {
@@ -144,20 +158,18 @@ public class SliderController : Controller
 
     }
 
+    [HttpPost]
+    [ValidateAntiForgeryToken]
     public ActionResult Delete(int id)
     {
-        var slider = _context.Sliders.FirstOrDefault(i => i.Id == id);
+        var slider = _context.Sliders.Find(id);
         if (slider == null)
         {
             return NotFound();
         }
-        else
-        {
-            _context.Sliders.Remove(slider);
-            _context.SaveChanges();
-            TempData["Message"] = $"`{slider.Title}` deleted successfully!";
-            return RedirectToAction("Index");
-        }
-        return View(slider);
+        _context.Sliders.Remove(slider);
+        _context.SaveChanges();
+        TempData["Message"] = $"`{slider.Title}` deleted successfully!";
+        return RedirectToAction("Index");
     }
 }

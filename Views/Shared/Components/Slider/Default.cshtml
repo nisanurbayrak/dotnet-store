@@ -1,46 +1,47 @@
-@model List<Slider>
-  <div id="slider" class="carousel slide" data-bs-ride="carousel">
+@model List<dotnet_store.Models.Slider>
+
+<div id="slider" class="carousel slide" data-bs-ride="carousel" style="height: 400px;">
     <div class="carousel-indicators">
-    @{
-        int x=0;
-        foreach(var item in Model){
-            <button type="button" data-bs-target="#slider" data-bs-slide-to="@x" 
-                class="@(x==0?"active":"")"></button>
-                x+=1;
+        @{
+            int x = 0;
+            foreach (var item in Model)
+            {
+                <button type="button" data-bs-target="#slider" data-bs-slide-to="@x" class="@(x == 0 ? "active" : "")" aria-current="@(x == 0 ? "true" : "false")" aria-label="Slide @(x + 1)"></button>
+                x++;
+            }
         }
-    }
     </div>
-  
-  <div id="carouselExample" class="carousel slide" data-bs-ride="carousel">
-  <div class="carousel-inner" style="height: 400px; overflow: hidden;">
-    @{
-        var y = 0;
-        foreach (var item in Model)
+
+    <div class="carousel-inner" style="height: 100%;">
+        @{
+            int y = 0;
+        }
+        @foreach (var item in Model)
         {
+            
             <div class="carousel-item @(y == 0 ? "active" : "")" style="height: 100%;">
-                <img src="/img/@item.Image"
-                     alt="@item.Title"
-                     style="width: 100%; height: 100%; object-fit: cover; display: block;" />
+                @if (item.CategoryId != 0)
+                {
+                    <a href="/products/@item.Category.Url" style="display: block; height: 100%;">
+                        <img src="/img/@item.Image" alt="@item.Title" style="width: 100%; height: 100%; object-fit: cover; display: block;" />
+                    </a>
+                }
+                else
+                {
+                    <img src="/img/@item.Image" alt="@item.Title" style="width: 100%; height: 100%; object-fit: cover; display: block;" />
+                }
             </div>
             y++;
         }
-    }
-  </div>
+    </div>
 
-    <button
-      type="button"
-      class="carousel-control-prev"
-      data-bs-target="#slider"
-      data-bs-slide="prev"
-    >
-      <span class="carousel-control-prev-icon"></span>
+    <button class="carousel-control-prev" type="button" data-bs-target="#slider" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
     </button>
-    <button
-      type="button"
-      class="carousel-control-next"
-      data-bs-target="#slider"
-      data-bs-slide="next"
-    >
-      <span class="carousel-control-next-icon"></span>
+
+    <button class="carousel-control-next" type="button" data-bs-target="#slider" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
     </button>
-  </div>
+</div>

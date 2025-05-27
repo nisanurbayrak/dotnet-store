@@ -17,141 +17,149 @@ build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = dotnet_store
 build_property.RootNamespace = dotnet_store
-build_property.ProjectDir = c:\Users\nisan\OneDrive\Masaüstü\dotnet-store\
+build_property.ProjectDir = C:\Users\nisan\OneDrive\Masaüstü\dotnet-store\
 build_property.EnableComHosting = 
 build_property.EnableGeneratedComInterfaceComImportInterop = 
 build_property.RazorLangVersion = 9.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = c:\Users\nisan\OneDrive\Masaüstü\dotnet-store
+build_property.MSBuildProjectDirectory = C:\Users\nisan\OneDrive\Masaüstü\dotnet-store
 build_property._RazorSourceGeneratorDebug = 
 build_property.EffectiveAnalysisLevelStyle = 9.0
 build_property.EnableCodeStyleSeverity = 
 
-[c:/Users/nisan/OneDrive/Masaüstü/dotnet-store/Views/Admin/Index.cshtml]
+[C:/Users/nisan/OneDrive/Masaüstü/dotnet-store/Views/Admin/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[c:/Users/nisan/OneDrive/Masaüstü/dotnet-store/Views/Category/Create.cshtml]
+[C:/Users/nisan/OneDrive/Masaüstü/dotnet-store/Views/Category/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2F0ZWdvcnlcQ3JlYXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[c:/Users/nisan/OneDrive/Masaüstü/dotnet-store/Views/Category/Edit.cshtml]
+[C:/Users/nisan/OneDrive/Masaüstü/dotnet-store/Views/Category/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2F0ZWdvcnlcRWRpdC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[c:/Users/nisan/OneDrive/Masaüstü/dotnet-store/Views/Category/Index.cshtml]
+[C:/Users/nisan/OneDrive/Masaüstü/dotnet-store/Views/Category/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2F0ZWdvcnlcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[c:/Users/nisan/OneDrive/Masaüstü/dotnet-store/Views/Home/Deneme.cshtml]
+[C:/Users/nisan/OneDrive/Masaüstü/dotnet-store/Views/Home/Deneme.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxEZW5lbWUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[c:/Users/nisan/OneDrive/Masaüstü/dotnet-store/Views/Home/Index.cshtml]
+[C:/Users/nisan/OneDrive/Masaüstü/dotnet-store/Views/Home/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[c:/Users/nisan/OneDrive/Masaüstü/dotnet-store/Views/Home/Privacy.cshtml]
+[C:/Users/nisan/OneDrive/Masaüstü/dotnet-store/Views/Home/Privacy.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[c:/Users/nisan/OneDrive/Masaüstü/dotnet-store/Views/Product/Create.cshtml]
+[C:/Users/nisan/OneDrive/Masaüstü/dotnet-store/Views/Product/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZHVjdFxDcmVhdGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[c:/Users/nisan/OneDrive/Masaüstü/dotnet-store/Views/Product/Details.cshtml]
+[C:/Users/nisan/OneDrive/Masaüstü/dotnet-store/Views/Product/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZHVjdFxEZXRhaWxzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[c:/Users/nisan/OneDrive/Masaüstü/dotnet-store/Views/Product/Edit.cshtml]
+[C:/Users/nisan/OneDrive/Masaüstü/dotnet-store/Views/Product/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZHVjdFxFZGl0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[c:/Users/nisan/OneDrive/Masaüstü/dotnet-store/Views/Product/Index.cshtml]
+[C:/Users/nisan/OneDrive/Masaüstü/dotnet-store/Views/Product/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZHVjdFxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[c:/Users/nisan/OneDrive/Masaüstü/dotnet-store/Views/Product/List.cshtml]
+[C:/Users/nisan/OneDrive/Masaüstü/dotnet-store/Views/Product/List.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZHVjdFxMaXN0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[c:/Users/nisan/OneDrive/Masaüstü/dotnet-store/Views/Shared/Components/Navbar/Default.cshtml]
+[C:/Users/nisan/OneDrive/Masaüstü/dotnet-store/Views/Product/NonActiveProduct.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZHVjdFxOb25BY3RpdmVQcm9kdWN0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/nisan/OneDrive/Masaüstü/dotnet-store/Views/Shared/Components/Navbar/Default.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXENvbXBvbmVudHNcTmF2YmFyXERlZmF1bHQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[c:/Users/nisan/OneDrive/Masaüstü/dotnet-store/Views/Shared/Components/Slider/Default.cshtml]
+[C:/Users/nisan/OneDrive/Masaüstü/dotnet-store/Views/Shared/Components/Slider/Default.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXENvbXBvbmVudHNcU2xpZGVyXERlZmF1bHQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[c:/Users/nisan/OneDrive/Masaüstü/dotnet-store/Views/Shared/Error.cshtml]
+[C:/Users/nisan/OneDrive/Masaüstü/dotnet-store/Views/Shared/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[c:/Users/nisan/OneDrive/Masaüstü/dotnet-store/Views/Shared/Partials/Admin/_AdminCards.cshtml]
+[C:/Users/nisan/OneDrive/Masaüstü/dotnet-store/Views/Shared/Partials/Admin/_AdminCards.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXFBhcnRpYWxzXEFkbWluXF9BZG1pbkNhcmRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[c:/Users/nisan/OneDrive/Masaüstü/dotnet-store/Views/Shared/Partials/Admin/_Message.cshtml]
+[C:/Users/nisan/OneDrive/Masaüstü/dotnet-store/Views/Shared/Partials/Admin/_Message.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXFBhcnRpYWxzXEFkbWluXF9NZXNzYWdlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[c:/Users/nisan/OneDrive/Masaüstü/dotnet-store/Views/Shared/Partials/Admin/_Navbar.cshtml]
+[C:/Users/nisan/OneDrive/Masaüstü/dotnet-store/Views/Shared/Partials/Admin/_Navbar.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXFBhcnRpYWxzXEFkbWluXF9OYXZiYXIuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[c:/Users/nisan/OneDrive/Masaüstü/dotnet-store/Views/Shared/Partials/Admin/_NewOrders.cshtml]
+[C:/Users/nisan/OneDrive/Masaüstü/dotnet-store/Views/Shared/Partials/Admin/_NewOrders.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXFBhcnRpYWxzXEFkbWluXF9OZXdPcmRlcnMuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[c:/Users/nisan/OneDrive/Masaüstü/dotnet-store/Views/Shared/Partials/Site/_Footer.cshtml]
+[C:/Users/nisan/OneDrive/Masaüstü/dotnet-store/Views/Shared/Partials/Admin/_ScriptLinksForHtml.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXFBhcnRpYWxzXEFkbWluXF9TY3JpcHRMaW5rc0Zvckh0bWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/nisan/OneDrive/Masaüstü/dotnet-store/Views/Shared/Partials/Site/_Footer.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXFBhcnRpYWxzXFNpdGVcX0Zvb3Rlci5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[c:/Users/nisan/OneDrive/Masaüstü/dotnet-store/Views/Shared/Partials/Site/_Menu.cshtml]
+[C:/Users/nisan/OneDrive/Masaüstü/dotnet-store/Views/Shared/Partials/Site/_Menu.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXFBhcnRpYWxzXFNpdGVcX01lbnUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[c:/Users/nisan/OneDrive/Masaüstü/dotnet-store/Views/Shared/Partials/Site/_ProductCard.cshtml]
+[C:/Users/nisan/OneDrive/Masaüstü/dotnet-store/Views/Shared/Partials/Site/_ProductCard.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXFBhcnRpYWxzXFNpdGVcX1Byb2R1Y3RDYXJkLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[c:/Users/nisan/OneDrive/Masaüstü/dotnet-store/Views/Shared/Partials/Site/_Topbar.cshtml]
+[C:/Users/nisan/OneDrive/Masaüstü/dotnet-store/Views/Shared/Partials/Site/_Topbar.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXFBhcnRpYWxzXFNpdGVcX1RvcGJhci5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[c:/Users/nisan/OneDrive/Masaüstü/dotnet-store/Views/Shared/_AdminLayout.cshtml]
+[C:/Users/nisan/OneDrive/Masaüstü/dotnet-store/Views/Shared/_AdminLayout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9BZG1pbkxheW91dC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[c:/Users/nisan/OneDrive/Masaüstü/dotnet-store/Views/Shared/_SiteLayout.cshtml]
+[C:/Users/nisan/OneDrive/Masaüstü/dotnet-store/Views/Shared/_SiteLayout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9TaXRlTGF5b3V0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[c:/Users/nisan/OneDrive/Masaüstü/dotnet-store/Views/Shared/_ValidationScriptsPartial.cshtml]
+[C:/Users/nisan/OneDrive/Masaüstü/dotnet-store/Views/Shared/_ValidationScriptsPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[c:/Users/nisan/OneDrive/Masaüstü/dotnet-store/Views/Slider/Create.cshtml]
+[C:/Users/nisan/OneDrive/Masaüstü/dotnet-store/Views/Slider/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2xpZGVyXENyZWF0ZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[c:/Users/nisan/OneDrive/Masaüstü/dotnet-store/Views/Slider/Delete.cshtml]
+[C:/Users/nisan/OneDrive/Masaüstü/dotnet-store/Views/Slider/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2xpZGVyXERlbGV0ZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[c:/Users/nisan/OneDrive/Masaüstü/dotnet-store/Views/Slider/Edit.cshtml]
+[C:/Users/nisan/OneDrive/Masaüstü/dotnet-store/Views/Slider/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2xpZGVyXEVkaXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[c:/Users/nisan/OneDrive/Masaüstü/dotnet-store/Views/Slider/Index.cshtml]
+[C:/Users/nisan/OneDrive/Masaüstü/dotnet-store/Views/Slider/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2xpZGVyXEluZGV4LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[c:/Users/nisan/OneDrive/Masaüstü/dotnet-store/Views/_ViewImports.cshtml]
+[C:/Users/nisan/OneDrive/Masaüstü/dotnet-store/Views/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[c:/Users/nisan/OneDrive/Masaüstü/dotnet-store/Views/_ViewStart.cshtml]
+[C:/Users/nisan/OneDrive/Masaüstü/dotnet-store/Views/_ViewStart.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
