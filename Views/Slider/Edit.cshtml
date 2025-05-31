@@ -1,44 +1,60 @@
-@model SliderEditModel
-@{
-    Layout = "_AdminLayout";
-}
+@model SliderEditModel 
+@{ Layout = "_AdminLayout"; }
 
 <div class="row">
-    <div class="col">
-        <div class="card shadow">
-            <div class="card-header py-1 d-flex align-items-center">
-                <h5 class="card-title mb-0">Slider Güncelle</h5>
-                <a asp-action="Index" class="btn btn-sm btn-primary d-flex ms-auto align-items-center">    
-                    <i class="fa-solid fa-list"></i>
-                </a>
-            </div>
-            <div class="card-body">
-                <form method="post" enctype="multipart/form-data">
-                    <div class="row">
-      <div class="col-md-8">
-        <div class="mb-3 row">
-          <label asp-for="Title" class="col-sm-2 col-form-label"></label>
-          <div class="col-sm-10">
-            <input asp-for="Title" class="form-control" />
-          </div>
+  <div class="col-12">
+    <div class="card shadow rounded-4">
+      <div
+        class="card-header d-flex justify-content-between align-items-center"
+      >
+        <span>Edit Slider</span>
+        <div class="d-flex gap-3 ms-auto">
+          <a
+            asp-action="Index"
+            class="btn btn-sm btn-custom"
+            title="Slider List"
+          >
+            <i class="fa-solid fa-list"></i>
+          </a>
         </div>
+      </div>
+      <div class="card-body">
+        <form method="post" enctype="multipart/form-data">
+          <div class="row">
+            <div class="col-md-8">
+              <div class="mb-3 row">
+                <label asp-for="Title" class="col-sm-2 col-form-label"></label>
+                <div class="col-sm-10">
+                  <input asp-for="Title" class="form-control" />
+                </div>
+              </div>
 
-        <div class="mb-3 row">
-          <label asp-for="Description" class="col-sm-2 col-form-label"></label>
-          <div class="col-sm-10">
-            <textarea asp-for="Description" rows="3" class="form-control"></textarea>
-          </div>
-        </div>
+              <div class="mb-3 row">
+                <label
+                  asp-for="Description"
+                  class="col-sm-2 col-form-label"
+                ></label>
+                <div class="col-sm-10">
+                  <textarea
+                    asp-for="Description"
+                    rows="3"
+                    class="form-control"
+                  ></textarea>
+                </div>
+              </div>
 
-        <div class="mb-3 row">
-          <label asp-for="Index" class="col-sm-2 col-form-label"></label>
-          <div class="col-sm-10">
-            <input asp-for="Index" class="form-control" />
-          </div>
-        </div>
+              <div class="mb-3 row">
+                <label asp-for="Index" class="col-sm-2 col-form-label"></label>
+                <div class="col-sm-10">
+                  <input asp-for="Index" class="form-control" />
+                </div>
+              </div>
 
-                                  <div class="mb-3 row align-items-center">
-                <label asp-for="Active" class="col-sm-2 col-form-label mb-0"></label>
+              <div class="mb-3 row align-items-center">
+                <label
+                  asp-for="Active"
+                  class="col-sm-2 col-form-label mb-0"
+                ></label>
                 <div class="col-sm-4">
                   <input
                     type="checkbox"
@@ -46,121 +62,70 @@
                     data-bootstrap-switch
                     asp-for="Active"
                     id="Active"
+                    data-on-color="teal"
                   />
                 </div>
 
-                <label asp-for="CategoryId" class="mb-0 col-sm-2 col-form-label">Categories</label>
+                <label asp-for="CategoryId" class="mb-0 col-sm-2 col-form-label"
+                  >Categories</label>
                 <div class="col-sm-4">
-                <select
-                  asp-for="CategoryId"
-                  asp-items="ViewBag.Categories"
-                  class="form-select"
+                  <select
+                    asp-for="CategoryId"
+                    asp-items="ViewBag.Categories"
+                    class="form-select"
+                  >
+                    <option value="">-- Select --</option>
+                  </select>
+                  <span
+                    asp-validation-for="CategoryId"
+                    class="text-danger"
+                  ></span>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-md-4 mx-auto">
+              <div class="text-center">
+                <div class="mb-3">
+                  <img id="imagePreview"
+                  src="@(string.IsNullOrEmpty(Model.Image) ?
+                  "https://placehold.co/300x200" : Url.Content("~/img/" +
+                  Model.Image))" class="img-fluid img-thumbnail w-100" />
+                  <div class="input-group w-100">
+                    <div class="custom-file w-100">
+                      <input type="hidden" asp-for="Image" />
+                      <input
+                        asp-for="ImageFile"
+                        type="file"
+                        class="custom-file-input"
+                        accept="image/*"
+                        onchange="previewImage(event)"
+                      />
+                      <span
+                        asp-validation-for="ImageFile"
+                        class="text-danger"
+                      ></span>
+                      <label class="custom-file-label text-left" for="Image"
+                        >Upload an Image</label
+                      >
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="text-end mt-4">
+                <button
+                  type="submit"
+                  class="btn btn-md btn-custom w-100 shadow-sm d-flex justify-content-center"
                 >
-                  <option value="">-- Seçiniz --</option>
-                </select>
-                <span
-                  asp-validation-for="CategoryId"
-                  class="text-danger"
-                ></span>
+                  Save
+                </button>
               </div>
-              </div>
-
-                            <div class="text-end mt-4">
-                                <button type="submit" class="btn btn-md btn-primary w-100 shadow-sm">
-                                    Kaydet
-                                </button>
-                            </div>
-
-                        </div>
-
-      <div class="col-md-4">
-        <label asp-for="Image" class="form-label">Görsel</label>
-            <div class="text-center p-3 border rounded shadow-sm bg-light">
-                <img id="imagePreview"
-                     src="@(string.IsNullOrEmpty(Model.Image) ? "https://placehold.co/300x200" : Url.Content("~/img/" + Model.Image))"
-                     class="img-thumbnail mb-2"
-                     style="max-height: 200px;"
-                     alt="Görsel Önizleme" />
-          
-        <input type="hidden" asp-for="Image" />
-                <input type="file" asp-for="ImageFile" class="form-control shadow-sm" accept="image/*" onchange="previewImage(event)" />
-                <span asp-validation-for="ImageFile" class="text-danger"></span>
-        </div>
-
-       
+            </div>
+          </div>
+        </form>
       </div>
     </div>
-                </form>
-            </div>
-        </div>
-    </div>
+  </div>
 </div>
 
-@section Scripts {
-    @await Html.PartialAsync("_ValidationScriptsPartial");
- <script>
-        function previewImage(event) {
-            const input = event.target;
-            const preview = document.getElementById('imagePreview');
-
-            if (input.files && input.files[0]) {
-                const reader = new FileReader();
-                reader.onload = function (e) {
-                    preview.src = e.target.result;
-                };
-                reader.readAsDataURL(input.files[0]);
-            }
-        }
-
-        document.addEventListener('DOMContentLoaded', function () {
-            const checkboxes = document.querySelectorAll('.category-checkbox');
-            const selectedContainer = document.getElementById('selectedCategories');
-
-            function createCategoryBadge(id, text) {
-                const badge = document.createElement('div');
-                badge.className = 'badge bg-primary d-flex align-items-center me-2 mb-2';
-                badge.style.padding = '0.5em 0.75em';
-                badge.style.borderRadius = '0.5rem';
-
-                const span = document.createElement('span');
-                span.textContent = text;
-
-                const btn = document.createElement('button');
-                btn.type = 'button';
-                btn.className = 'btn-close btn-close-white btn-sm ms-2';
-                btn.setAttribute('aria-label', 'Remove');
-                btn.addEventListener('click', () => {
-                    const checkbox = document.getElementById(id);
-                    if (checkbox) {
-                        checkbox.checked = false;
-                    }
-                    badge.remove();
-                });
-
-                badge.appendChild(span);
-                badge.appendChild(btn);
-                return badge;
-            }
-
-            function updateSelectedCategories() {
-                selectedContainer.innerHTML = '';
-                checkboxes.forEach(chk => {
-                    if (chk.checked) {
-                        const badge = createCategoryBadge(chk.id, chk.nextElementSibling.textContent);
-                        selectedContainer.appendChild(badge);
-                    }
-                });
-            }
-
-            const selectedIds = @Html.Raw(Json.Serialize( new List<int>()));
-
-            checkboxes.forEach(chk => {
-                if (selectedIds.includes(parseInt(chk.value))) {
-                    chk.checked = true;
-                }
-            });
-
-            updateSelectedCategories();
-            checkboxes.forEach(chk => chk.addEventListener('change', updateSelectedCategories));
-        });
-    </script>}
+@section Scripts { @await Html.PartialAsync("_ValidationScriptsPartial"); }

@@ -363,6 +363,7 @@ C:\Users\nisan\OneDrive\Masaüstü\dotnet-store\obj\Debug\net9.0\dotnet-store.Ra
 C:\Users\nisan\OneDrive\Masaüstü\dotnet-store\obj\Debug\net9.0\dotnet-store.RazorAssemblyInfo.cs
 C:\Users\nisan\OneDrive\Masaüstü\dotnet-store\obj\Debug\net9.0\dotnet-store.sourcelink.json
 C:\Users\nisan\OneDrive\Masaüstü\dotnet-store\obj\Debug\net9.0\scopedcss\bundle\dotnet-store.styles.css
+C:\Users\nisan\OneDrive\Masaüstü\dotnet-store\obj\Debug\net9.0\compressed\stxxyg6xyu-xbivlnqbx9.gz
 C:\Users\nisan\OneDrive\Masaüstü\dotnet-store\obj\Debug\net9.0\compressed\gejvkwke1r-i5dw1y35ah.gz
 C:\Users\nisan\OneDrive\Masaüstü\dotnet-store\obj\Debug\net9.0\compressed\ybqhv9wpbv-vwipl5cvsg.gz
 C:\Users\nisan\OneDrive\Masaüstü\dotnet-store\obj\Debug\net9.0\compressed\48lvmql9bb-wqhl0zxvjx.gz
@@ -390,17 +391,12 @@ C:\Users\nisan\OneDrive\Masaüstü\dotnet-store\obj\Debug\net9.0\compressed\51a5
 C:\Users\nisan\OneDrive\Masaüstü\dotnet-store\obj\Debug\net9.0\compressed\kongjxjzlh-r4e9w2rdcm.gz
 C:\Users\nisan\OneDrive\Masaüstü\dotnet-store\obj\Debug\net9.0\compressed\y2nrnakdvp-wl58j5mj3v.gz
 C:\Users\nisan\OneDrive\Masaüstü\dotnet-store\obj\Debug\net9.0\compressed\edztotycqx-c2oey78nd0.gz
-C:\Users\nisan\OneDrive\Masaüstü\dotnet-store\obj\Debug\net9.0\compressed\d4itx7kl9j-d4r6k3f320.gz
 C:\Users\nisan\OneDrive\Masaüstü\dotnet-store\obj\Debug\net9.0\compressed\lqymlb8z0d-j5mq2jizvt.gz
-C:\Users\nisan\OneDrive\Masaüstü\dotnet-store\obj\Debug\net9.0\compressed\bsufrrpzwh-keugtjm085.gz
 C:\Users\nisan\OneDrive\Masaüstü\dotnet-store\obj\Debug\net9.0\compressed\ptg7zf03ry-nvvlpmu67g.gz
-C:\Users\nisan\OneDrive\Masaüstü\dotnet-store\obj\Debug\net9.0\compressed\djp9ztln5t-zub09dkrxp.gz
 C:\Users\nisan\OneDrive\Masaüstü\dotnet-store\obj\Debug\net9.0\compressed\mh6qpevfjp-pj5nd1wqec.gz
-C:\Users\nisan\OneDrive\Masaüstü\dotnet-store\obj\Debug\net9.0\compressed\75c22zklg5-43atpzeawx.gz
 C:\Users\nisan\OneDrive\Masaüstü\dotnet-store\obj\Debug\net9.0\compressed\7pk3ufpkrk-v0zj4ognzu.gz
 C:\Users\nisan\OneDrive\Masaüstü\dotnet-store\obj\Debug\net9.0\compressed\rc56k1xgxh-ynyaa8k90p.gz
 C:\Users\nisan\OneDrive\Masaüstü\dotnet-store\obj\Debug\net9.0\compressed\9ak269depl-hrwsygsryq.gz
-C:\Users\nisan\OneDrive\Masaüstü\dotnet-store\obj\Debug\net9.0\compressed\nz9zht9tnt-c63t5i9ira.gz
 C:\Users\nisan\OneDrive\Masaüstü\dotnet-store\obj\Debug\net9.0\compressed\gbr9vdp9eh-ft3s53vfgj.gz
 C:\Users\nisan\OneDrive\Masaüstü\dotnet-store\obj\Debug\net9.0\compressed\xaftpstwhu-4094rpi4f9.gz
 C:\Users\nisan\OneDrive\Masaüstü\dotnet-store\obj\Debug\net9.0\compressed\lfhfpl1uhq-6pdc2jztkx.gz
@@ -439,4 +435,9 @@ C:\Users\nisan\OneDrive\Masaüstü\dotnet-store\obj\Debug\net9.0\refint\dotnet-s
 C:\Users\nisan\OneDrive\Masaüstü\dotnet-store\obj\Debug\net9.0\dotnet-store.pdb
 C:\Users\nisan\OneDrive\Masaüstü\dotnet-store\obj\Debug\net9.0\dotnet-store.genruntimeconfig.cache
 C:\Users\nisan\OneDrive\Masaüstü\dotnet-store\obj\Debug\net9.0\ref\dotnet-store.dll
-C:\Users\nisan\OneDrive\Masaüstü\dotnet-store\obj\Debug\net9.0\compressed\stxxyg6xyu-xbivlnqbx9.gz
+C:\Users\nisan\OneDrive\Masaüstü\dotnet-store\obj\Debug\net9.0\compressed\75c22zklg5-12uffmmpkt.gz
+C:\Users\nisan\OneDrive\Masaüstü\dotnet-store\obj\Debug\net9.0\compressed\nz9zht9tnt-pnptiib8py.gz
+C:\Users\nisan\OneDrive\Masaüstü\dotnet-store\obj\Debug\net9.0\compressed\bsufrrpzwh-bor709mzyu.gz
+C:\Users\nisan\OneDrive\Masaüstü\dotnet-store\obj\Debug\net9.0\compressed\djp9ztln5t-vo37egjv98.gz
+C:\Users\nisan\OneDrive\Masaüstü\dotnet-store\obj\Debug\net9.0\compressed\d4itx7kl9j-20fhcyvt1m.gz
+C:\Users\nisan\OneDrive\Masaüstü\dotnet-store\obj\Debug\net9.0\compressed\a9iidwm3rw-5w7b0l4fv0.gz

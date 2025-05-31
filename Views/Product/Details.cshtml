@@ -38,7 +38,8 @@
                     </div>
                     <p class="text-success">Stokta</p>
                     <div class="mb-3"><b class="price h5">@Model.Price ₺</b></div>
-                    <div class="product-description mb-3">@Model.Description</div>
+                    <div class="product-description mb-3">@Html.Raw(Model.Description)</div>
+
                     <dl class="row border-bottom">
                         <dt class="col-3">Renk</dt>
                         <dd class="col-9">Yıldız Işığı</dd>

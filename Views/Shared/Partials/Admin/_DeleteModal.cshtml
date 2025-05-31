@@ -1,0 +1,38 @@
+<div id="deleteModal" class="modal fade" tabindex="-1" aria-labelledby="deleteModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content rounded-4 shadow-sm border-0">
+            <div class="modal-header">
+                <h5 class="modal-title" id="deleteModalLabel">Delete Confirmation</h5>
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>            
+            </div>
+            <div class="modal-body">
+                <p id="deleteMessage" style="font-weight: 600; font-size: 1.1rem;"></p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary fw-semibold" data-bs-dismiss="modal">Cancel</button>
+                <button type="button" class="btn btn-danger" onclick="confirmDelete()">Delete</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="confirmDeleteModal" class="modal fade" tabindex="-1" aria-labelledby="confirmDeleteModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content rounded-4 shadow-sm border-0">
+            <div class="modal-header">
+                <h5 class="modal-title" id="confirmDeleteModalLabel">Delete Confirmation - Final Step</h5>
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <p id="confirmDeleteMessage" style="font-weight: 600; font-size: 1.1rem;"></p>
+            </div>
+            <div class="modal-footer">
+                <form method="post" asp-action="DeleteConfirmed" id="deleteForm" class="d-flex gap-2">
+                    <button type="button" class="btn btn-secondary fw-semibold" data-bs-dismiss="modal">Cancel</button>
+                    <button type="submit" class="btn btn-danger fw-semibold">Delete</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+

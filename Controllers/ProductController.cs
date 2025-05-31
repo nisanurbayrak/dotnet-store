@@ -2,6 +2,8 @@ using dotnet_store.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
+using System.Text.RegularExpressions;
+
 
 namespace dotnet_store.Controllers;
 
@@ -161,6 +163,7 @@ public class ProductController : Controller
         return View(model);
     }
 
+
     [HttpGet]
     public ActionResult Edit(int id)
     {
@@ -181,15 +184,17 @@ public class ProductController : Controller
             Description = i.Description
         })
         .FirstOrDefault(i => i.Id == id);
+
         if (entity == null)
         {
             return NotFound();
         }
+        ViewBag.SelectedCategoryIds = entity.CategoryIds;
         return View(entity);
     }
+
     [HttpPost]
     [ValidateAntiForgeryToken]
-
     public async Task<IActionResult> Edit(int id, ProductEditModel model)
     {
         if (id != model.Id)
@@ -212,6 +217,11 @@ public class ProductController : Controller
             {
                 model.Image = oldEntity.Image;
             }
+            foreach (var error in ModelState.Values.SelectMany(v => v.Errors))
+            {
+                Console.WriteLine($"Hata: {error.ErrorMessage}");
+            }
+            return View(model);
         }
 
         var entity = await _context.Products
@@ -220,7 +230,7 @@ public class ProductController : Controller
 
         if (entity == null)
         {
-            return RedirectToAction("Index");
+            return RedirectToAction("Index", "Product");
         }
 
         if (model.ImageFile != null)
@@ -237,7 +247,6 @@ public class ProductController : Controller
         }
         else
         {
-            // Resim yoksa var olan resmi kullan
             model.Image = model.Image ?? entity.Image ?? "pho.png";
         }
 
@@ -265,8 +274,8 @@ public class ProductController : Controller
         }
         await _context.SaveChangesAsync();
 
-        TempData["Message"] = $"`{entity.ProductName}` updated successfully!";
-        return RedirectToAction("Index");
+        TempData["Message"] = $"{entity.ProductName} updated successfully!";
+        return Redirect("/Product");
     }
 
     public IActionResult Delete(int? id)

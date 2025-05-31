@@ -102,39 +102,53 @@ public class CategoryController : Controller
         }
         return RedirectToAction("Index");
     }
+
+
     [HttpPost]
     public ActionResult DeleteConfirm(int? id)
     {
         if (id == null)
         {
+            TempData["Error"] = "Geçersiz kategori ID.";
             return RedirectToAction("Index");
         }
-        var entity = _context.Categories
+        if (id == 1)
+        {
+            TempData["Message"] = "Bu Kategoriyi Silemezsiniz";
+            return RedirectToAction("Index");
+        }
+
+        var category = _context.Categories
             .Include(c => c.ProductCategories)
-            .ThenInclude(c => c.Product)
             .FirstOrDefault(c => c.Id == id);
 
-        var relatedProducts = entity.ProductCategories.Select(pc => pc.Product).ToList();
-
-        if (relatedProducts.Count > 0 && entity.IsActive == true)
+        if (category == null)
         {
-            foreach (var product in relatedProducts)
-            {
-                product.Category.Id = 1;
-            }
-            entity.IsActive = false;
-            TempData["Message"] = $"`{entity.CategoryName}` kategorisi silinemez. Bu kategoriye ait ürünler var. Kategori durumu pasif yapılabilir.";
-            entity.IsActive = false;
-            _context.SaveChanges();
+            TempData["Error"] = "Kategori bulunamadı.";
             return RedirectToAction("Index");
         }
-        if (entity != null && (relatedProducts.Count == 0 || entity.IsActive == false))
+
+        if (category.Id == 1)
         {
-            _context.Categories.Remove(entity);
-            _context.SaveChanges();
-            TempData["Message"] = $"`{entity.CategoryName}` category deleted successfully!";
+            TempData["Error"] = "Bu kategori sistem kategorisidir ve silinemez.";
+            return RedirectToAction("Index");
         }
 
+        var productCategoryList = _context.ProductCategory
+            .Where(pc => pc.CategoryId == category.Id)
+            .ToList();
+
+        foreach (var pc in productCategoryList)
+        {
+            pc.CategoryId = 1;
+        }
+
+        _context.Categories.Remove(category);
+        _context.SaveChanges();
+
+        TempData["Message"] = $"\"{category.CategoryName}\" kategorisi silindi. Ürünler 'Silinmiş Kategori'ye taşındı.";
         return RedirectToAction("Index");
     }
+
+
 }

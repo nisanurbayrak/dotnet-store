@@ -4,7 +4,9 @@ using Microsoft.EntityFrameworkCore;
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
-builder.Services.AddControllersWithViews();
+builder.Services.AddControllersWithViews()
+    .AddSessionStateTempDataProvider(); // TempData için session kullanır
+builder.Services.AddSession();
 // addcontroller api kullanacağın zaman kullanırsın.
 
 
@@ -27,6 +29,8 @@ if (!app.Environment.IsDevelopment())
 app.UseHttpsRedirection();
 
 app.UseStaticFiles();
+
+app.UseSession();
 
 app.UseRouting();
 

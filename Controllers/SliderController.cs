@@ -76,7 +76,7 @@ public class SliderController : Controller
         return View();
     }
 
-    public async Task<ActionResult> Edit(int id)
+    public IActionResult Edit(int id)
     {
         var slider = _context.Sliders.FirstOrDefault(i => i.Id == id);
         if (slider == null)

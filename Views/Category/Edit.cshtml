@@ -3,13 +3,17 @@
 <div class="row">
   <div class="col">
     <div class="card shadow">
-      <div
-        class="card-header py-1 d-flex justify-content-between align-items-center"
-      >
-        <h5 class="card-title">Kategori Düzenle</h5>
-        <a href="kategori.html" class="btn btn-sm btn-primary  d-flex ms-auto align-items-center">
-          <i class="fa-solid fa-list"></i>
-        </a>
+      <div class="card-header d-flex justify-content-between align-items-center">
+        <span>Edit Category</span>
+        <div class="d-flex gap-3 ms-auto">
+          <a
+            asp-action="Index"
+            class="btn btn-sm btn-custom"
+            title="Slider List"
+          >
+            <i class="fa-solid fa-list"></i>
+          </a>
+        </div>
       </div>
       <div class="card-body">
         <div asp-validation-summary="All" class="text-danger"></div>
@@ -39,11 +43,11 @@
            <div class="row mb-3 align-items-center">
                                 <label asp-for="IsActive" class="col-sm-2 col-form-label"></label>
                                 <div class="col-sm-6 d-flex align-items-center">
-                                    <input type="checkbox" class="form-check-input" data-bootstrap-switch asp-for="IsActive" id="IsActive" />
+                                    <input type="checkbox" class="form-check-input" data-bootstrap-switch data-on-color="teal" asp-for="IsActive" id="IsActive"  />
                                 </div>
 
-                                <div class="col-sm-4 d-flex justify-content-end">
-                                    <button type="submit" class="btn btn-primary w-75">Kaydet</button>
+                                <div class="col-sm-4 d-flex justify-content-end ">
+                                    <button type="submit" class="btn btn-custom w-75 justify-content-center">Save</button>
                                 </div>
                             </div>
         </form>

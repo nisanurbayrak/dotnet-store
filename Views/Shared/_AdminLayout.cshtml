@@ -30,8 +30,11 @@
     </main>
 
 
- <!-- jQuery 3.6.0 -->
+    <!-- jQuery 3.6.0 -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+        
+    <!-- CKEditor 5 Classic -->
+    <script src="https://cdn.ckeditor.com/ckeditor5/39.0.1/classic/ckeditor.js"></script>
 
     <!-- Bootstrap 5.3.3 Bundle (includes Popper) -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/js/bootstrap.bundle.min.js"></script>
@@ -41,9 +44,6 @@
 
     <!-- Bootstrap Switch -->
     <script src="https://adminlte.io/themes/v3/plugins/bootstrap-switch/js/bootstrap-switch.min.js"></script>
-
-    <!-- CKEditor 5 Classic -->
-    <script src="https://cdn.ckeditor.com/ckeditor5/39.0.1/classic/ckeditor.js"></script>
 
     <!-- DataTables core + Bootstrap 4 + Responsive + Buttons -->
     <script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
@@ -63,43 +63,30 @@
     <!-- Custom Scripts -->
    <script>
         // CKEditor init
-    ClassicEditor
-    .create(document.querySelector('#editor'))
-    .catch(error => {
-        console.error(error);
-    });
-
-    // Image preview (iki farklı fonksiyonun birleşimi)
-    function previewImage(event) {
-    const reader = new FileReader();
-    reader.onload = function () {
-        const output = document.getElementById('imagePreview');
-        output.src = reader.result;
-    };
-    reader.readAsDataURL(event.target.files[0]);
-    }
-
-    function previewImg(event) {
-    const input = event.target;
-
-    if (input.files && input.files[0]) {
-        const file = input.files[0];
-        const reader = new FileReader();
-
-        reader.onload = function (e) {
-        const preview = document.getElementById('imagePreview');
-        preview.src = e.target.result;
-        };
-
-        reader.readAsDataURL(file);
+   document.addEventListener("DOMContentLoaded", function() {
+        // CKEditor init
+        if (document.querySelector('#editor')) {
+            ClassicEditor
+                .create(document.querySelector('#editor'))
+                .catch(error => console.error("CKEditor error:", error));
         }
-    }
+}); 
 
+    function previewImage(event) {
+            const input = event.target;
+            if (input.files && input.files[0]) {
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    document.getElementById('imagePreview').src = e.target.result;
+                };
+                reader.readAsDataURL(input.files[0]);
+            }
+        }
+  
     // Delete Modal açma fonksiyonu
     function openDeleteModal(id, name) {
     document.getElementById('deleteId').value = id;
-    document.getElementById('deleteMessage').textContent = `"${name}" kategorisini silmek üzeresiniz. Bu işlem geri alınamaz.`;
-
+    document.getElementById('deleteMessage').textContent = `Warning: You are deleting the "${name}" category permanently. This action cannot be reversed.`;
     var modal = new bootstrap.Modal(document.getElementById('deleteModal'));
     modal.show();
     }
@@ -108,7 +95,6 @@
     $(document).ready(function () {
     $('#myTable').DataTable();
 
-    // switch
     $("input[data-bootstrap-switch]").each(function () {
         $(this).bootstrapSwitch('state', $(this).prop('checked'));
     });
@@ -116,6 +102,56 @@
     $("input[data-bootstrap-switch]").bootstrapSwitch();
     });
     
+
+    document.addEventListener('DOMContentLoaded', function () {
+        const checkboxes = document.querySelectorAll('.category-checkbox');
+        const selectedContainer = document.getElementById('selectedCategories');
+
+        function createCategoryBadge(id, text) {
+            const badge = document.createElement('div');
+            badge.className = 'badge btn-custom d-flex align-items-center';
+            badge.style.padding = '0.5em 0.75em';
+            badge.style.borderRadius = '0.5rem';
+
+            const span = document.createElement('span');
+            span.textContent = text;
+
+            const btn = document.createElement('button');
+            btn.type = 'button';
+            btn.className = 'btn-close btn-close-white btn-sm ms-2';
+            btn.setAttribute('aria-label', 'Remove');
+            btn.addEventListener('click', () => {
+                const checkbox = document.getElementById(id);
+                if (checkbox) {
+                    checkbox.checked = false;
+                }
+                badge.remove();
+            });
+
+            badge.appendChild(span);
+            badge.appendChild(btn);
+
+            return badge;
+        }
+
+        function updateSelectedCategories() {
+            selectedContainer.innerHTML = '';
+            checkboxes.forEach(chk => {
+                if (chk.checked) {
+                    const badge = createCategoryBadge(chk.id, chk.nextElementSibling.textContent);
+                    selectedContainer.appendChild(badge);
+                }
+            });
+        }
+
+        checkboxes.forEach(chk => {
+            chk.addEventListener('change', updateSelectedCategories);
+        });
+
+        updateSelectedCategories();
+    });
+</script>  
+
    </script>
 
 

@@ -2,22 +2,31 @@
 @{ Layout = "_AdminLayout"; }
 
 <div class="row">
-  <div class="col">
-    <div class="card shadow">
+  <div class="col-12">
+    <div class="card shadow rounded-4">
       <div
-        class="card-header py-1 d-flex justify-content-between align-items-center"
+        class="card-header d-flex justify-content-between align-items-center"
       >
-        <h5 class="card-title">Slider Ekle</h5>
-        <a asp-action="Index" class="btn btn-sm btn-primary d-flex ms-auto align-items-center ">
-          <i class="fa-solid fa-list"></i>
-        </a>
+        <span>Add Slider</span>
+        <div class="d-flex gap-3 ms-auto">
+          <a
+            asp-action="Index"
+            class="btn btn-sm btn-custom"
+            title="Slider List"
+          >
+            <i class="fa-solid fa-list"></i>
+          </a>
+        </div>
       </div>
-      <div class="card-body">
+      <div class="card-body bg-white rounded-bottom-4">
         <form method="post" enctype="multipart/form-data">
-          <div class="row">
+          <div class="row g-4">
             <div class="col-md-8">
               <div class="mb-3 row">
-                <label asp-for="Title" class="col-sm-2 col-form-label"></label>
+                <label
+                  asp-for="Title"
+                  class="col-sm-2 col-form-label fw-semibold"
+                ></label>
                 <div class="col-sm-10">
                   <input asp-for="Title" class="form-control" />
                   <span asp-validation-for="Title" class="text-danger"></span>
@@ -51,7 +60,10 @@
               </div>
 
               <div class="mb-3 row align-items-center">
-                <label asp-for="Active" class="col-sm-2 col-form-label mb-0"></label>
+                <label
+                  asp-for="Active"
+                  class="col-sm-2 col-form-label mb-0"
+                ></label>
                 <div class="col-sm-4">
                   <input
                     type="checkbox"
@@ -59,53 +71,63 @@
                     data-bootstrap-switch
                     asp-for="Active"
                     id="Active"
+                    data-on-color="teal"
                   />
                 </div>
 
-                <label asp-for="CategoryId" class="mb-0 col-sm-2 col-form-label">Categories</label>
+                <label asp-for="CategoryId" class="mb-0 col-sm-2 col-form-label"
+                  >Categories</label>
                 <div class="col-sm-4">
-                <select
-                  asp-for="CategoryId"
-                  asp-items="ViewBag.Categories"
-                  class="form-select"
-                >
-                  <option value="">-- Seçiniz --</option>
-                </select>
-                <span
-                  asp-validation-for="CategoryId"
-                  class="text-danger"
-                ></span>
-              </div>
+                  <select
+                    asp-for="CategoryId"
+                    asp-items="ViewBag.Categories"
+                    class="form-select"
+                  >
+                    <option value="">-- Select --</option>
+                  </select>
+                  <span
+                    asp-validation-for="CategoryId"
+                    class="text-danger"
+                  ></span>
+                </div>
               </div>
 
               <div class="text-end mt-4">
                 <button
                   type="submit"
-                  class="btn btn-md btn-primary w-100 shadow-sm"
+                  class="btn btn-md btn-custom w-100 shadow-sm d-flex justify-content-center"
                 >
-                  Kaydet
+                  Save
                 </button>
               </div>
             </div>
-
-            <div class="col-md-4">
-              <label asp-for="Image" class="form-label"></label>
-              <div class="text-center p-3 border rounded shadow-sm bg-light">
-                <img
-                  id="imagePreview"
-                  src="https://placehold.co/300x200"
-                  class="img-thumbnail mb-2"
-                  style="max-height: 200px"
-                  alt="Görsel Önizleme"
-                />
-                <input
-                  type="file"
-                  asp-for="Image"
-                  class="form-control shadow-sm"
-                  accept="image/*"
-                  onchange="previewImage(event)"
-                />
-                <span asp-validation-for="Image" class="text-danger"></span>
+            <div class="col-md-4 mx-auto">
+              <div class="text-center">
+                <div class="mb-3">
+                  <img
+                    id="imagePreview"
+                    src="https://placehold.co/300x200"
+                    class="img-fluid img-thumbnail w-100"
+                  />
+                </div>
+                <div class="input-group w-100">
+                  <div class="custom-file w-100">
+                    <input
+                      asp-for="Image"
+                      type="file"
+                      class="custom-file-input"
+                      accept="image/*"
+                      onchange="previewImage(event)"
+                    />
+                    <label class="custom-file-label text-left" for="Image"
+                      >Upload an Image</label
+                    >
+                  </div>
+                </div>
+                <span
+                  asp-validation-for="Image"
+                  class="text-danger small d-block mt-2"
+                ></span>
               </div>
             </div>
           </div>

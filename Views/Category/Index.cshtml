@@ -3,13 +3,14 @@
   <div class="row">
     <div class="col">
       <div class="card shadow-sm border-0 rounded-4">
-        <div class="card-header bg-primary py-2 d-flex justify-content-between align-items-center rounded-top-4">
-          <h5 class="card-title fw-semibold mb-0">Kategoriler</h5>
-          <div class="d-flex ms-auto align-items-center gap-2">
+        <div class="card-header d-flex justify-content-between align-items-center">
+          <span>Categories</span>
+          <div class="d-flex ms-auto gap-3">
             <a
             asp-controller="Category"
             asp-action="Create"
-            class="btn btn-sm btn-light shadow-sm text-primary custom-btn"
+            class="btn btn-custom"
+            title="Add New Categories"
             >
             <i class="fa-solid fa-plus"></i>
             </a>
@@ -17,18 +18,15 @@
           
         </div>
         <div class="card-body bg-white rounded-bottom-4">
-          <div class="table-responsive overflow-hidden">
-            <table id="myTable" class="table table-hover text-center align-middle">
-              <thead class="table-primary text-primary">
+          <div class="table-responsive">
+            <table id="myTable">
+              <thead>
                 <tr>
-                  <th colspan="9" class="fs-5 fw-bold py-2 text-start">Categories</th>
-                </tr>
-                <tr>
-                  <th>Id</th>
-                  <th>Kategori Adı</th>
+                  <th>ID</th>
+                  <th>Category Name</th>
                   <th>Url</th>
-                  <th>Ürün Sayısı</th>
-                  <th>Aktif</th>
+                  <th>Product Count</th>
+                  <th>Active</th>
                   <th></th>
                 </tr>
               </thead>
@@ -36,19 +34,11 @@
                 @foreach (var c in Model) {
                 <tr>
                   <td class="fw-semibold">@c.Id</td>
-                  <td class="fw-semibold">@c.CategoryName</td>
-                  <td class="fw-medium text-muted">@c.Url</td>
-                  <td class="fw-semibold" >@c.ProductCount</td>
+                  <td class="fw-semibold text-start">@c.CategoryName</td>
+                  <td class="category-name  text-start">@c.Url</td>
+                  <td class="stock-count" >@c.ProductCount</td>
                   <td class="text-center">
-                    @if (c.IsActive == true) {
-                    <i
-                      class="fa-solid fa-circle-check text-success fs-5"
-                    ></i>
-                    } else{
-                    <i
-                      class="fa-solid fa-circle-xmark text-danger fs-5"
-                    ></i>
-                    }
+                    <i class="fa-solid status-icon @(c.IsActive ? "fa-circle-check status-active" : "fa-circle-xmark status-passive")" title="Is Active"></i>
                   </td>
                   <td class="text-center">
                     <a
@@ -67,13 +57,13 @@
                       <i class="fa-solid fa-right-long"></i>
                     </a>
 
-                    <a
+                    <button
                       href="javascript:void(0);"
                       class="btn btn-outline-danger btn-sm me-1"                       
                       onclick="openDeleteModal(@c.Id, '@c.CategoryName')"
                     >
                       <i class="fa-solid fa-trash"></i>
-                    </a>
+                    </button>
 
                     <form
                       id="delete-form-@c.Id"
@@ -95,7 +85,7 @@
     </div>
   </div>
 
-  <div class="modal fade" id="deleteModal" tabindex="-1" aria-hidden="true">
+ <div class="modal fade" id="deleteModal" tabindex="-1" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">
       <div class="modal-content rounded-4 shadow-sm border-0">
         <form
@@ -130,5 +120,5 @@
         </form>
       </div>
     </div>
-  </div>
+  </div> 
 
