@@ -1,9 +1,11 @@
 
+using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 
 namespace dotnet_store.Models;
 
-public class DataContext : DbContext
+public class DataContext : IdentityDbContext<IdentityUser>
 {
     public DataContext(DbContextOptions<DataContext> options) : base(options)
     {
@@ -13,6 +15,7 @@ public class DataContext : DbContext
     public DbSet<Category> Categories { get; set; } = null!;
     public DbSet<Slider> Sliders { get; set; } = null!;
     public DbSet<ProductCategory> ProductCategory { get; set; } = null!;
+
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         base.OnModelCreating(modelBuilder);

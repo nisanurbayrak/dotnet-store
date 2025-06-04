@@ -148,10 +148,9 @@ public class ProductController : Controller
                 IsHome = model.IsHome,
                 Image = fileName,
                 Stock = model.Stock ?? 0,
-                ProductCategories = model.CategoryIds?.Select(cid => new ProductCategory
-                {
-                    CategoryId = cid
-                }).ToList()
+                ProductCategories = model.CategoryIds?
+                .Select(cid => new ProductCategory { CategoryId = cid })
+                .ToList()
             };
 
             _context.Products.Add(product);
