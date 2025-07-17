@@ -1,0 +1,104 @@
+@model UserEditModel 
+@{ Layout ="_AdminLayout"; }
+<div class="row">
+  <div class="col">
+    <div class="card shadow ">
+      <div class="card-header d-flex justify-content-between align-items-center">
+        <span>Edit User</span>
+        <div class="d-flex gap-3 ms-auto">
+          <a
+            asp-action="Index"
+            class="btn btn-sm btn-custom"
+            title="Slider List"
+          >
+            <i class="fa-solid fa-list"></i>
+          </a>
+        </div>
+      </div>
+      <div class="card-body">
+         <div asp-validation-summary="All" class="text-danger"></div>
+                <form method="post" asp-controller="User" asp-action="Edit">
+          <div class="row mb-3 px-4 shadow-m">
+            <label
+              asp-for="Username"
+              name="Username"
+              class="col-sm-2 col-form-label"
+            ></label>
+            <div class="col-sm-10">
+              <input asp-for="Username" class="form-control" />
+              <span
+                asp-validation-for="Username"
+                class="text-danger"
+              ></span>
+            </div>
+          </div>
+          <div class="row mb-3 px-4 shadow-m">
+            <label asp-for="Name" class="col-sm-2 col-form-label"></label>
+            <div class="col-sm-10">
+              <input asp-for="Name" class="form-control" />
+              <span asp-validation-for="Name" class="text-danger"></span>
+            </div>
+          </div>
+           <div class="row mb-3 px-4 shadow-m">
+            <label asp-for="Surname" class="col-sm-2 col-form-label"></label>
+            <div class="col-sm-10">
+              <input asp-for="Surname" class="form-control" />
+              <span asp-validation-for="Surname" class="text-danger"></span>
+            </div>
+          </div>
+          <div class="row mb-3 px-4 shadow-m">
+            <label asp-for="Email" class="col-sm-2 col-form-label"></label>
+            <div class="col-sm-10">
+              <input asp-for="Email" class="form-control" />
+              <span asp-validation-for="Email" class="text-danger"></span>
+            </div>
+          </div>
+
+          <div class="card p-4 shadow-m border border-2 rounded-4 mb-2">
+              <div class="card-title mb-0">Update Password</div>
+            <div class="card-body">
+              <div class="mb-3">
+                <div class="row">
+                  <div class="col-6">
+                    <label asp-for="Password" class="form-label"></label>
+                    <input asp-for="Password" class="form-control">
+                    <span asp-validation-for="Password" class="text-danger"></span>
+                  </div>
+                  <div class="col-6">
+                    <label asp-for="ConfirmPassword" class="form-label"></label>
+                    <input asp-for="ConfirmPassword" class="form-control">
+                    <span asp-validation-for="ConfirmPassword" class="text-danger"></span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="card p-4 shadow-m border border-2 rounded-4 mb-2">
+            <h5 class="mt-2 mb-4">Update Roles</h5>
+            <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-2">
+              @foreach (var role in ViewBag.Roles)
+              {
+                  <div class="col">
+                    <div class="form-check">
+                      <input class="form-check-input" type="checkbox" 
+                            id="@role" name="SelectedRoles" value="@role" @(Model.SelectedRoles!.Any( i =>i == role)? "checked":"") />
+                      <label class="form-check-label text-capitalize fw-medium" for="@role">
+                        @role
+                      </label>
+                    </div>
+                </div>
+              }
+            </div>
+          </div>
+
+           <div class="my-3 align-items-center d-flex justify-content-end">
+              <button type="submit" class="btn btn-primary">Update</button>
+            </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+@section Scripts{ @await Html.PartialAsync("_ValidationScriptsPartial")}

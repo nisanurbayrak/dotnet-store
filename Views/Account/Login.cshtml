@@ -1,4 +1,8 @@
-@model AccountCreateModel
+@model AccountLoginModel
+@{
+    Layout = "_SiteLayout";
+}
+
 @section Bar{
     <section class="bg-primary p-3">
         <div class="container">
@@ -8,7 +12,7 @@
                         <a href="#">Home</a>
                     </li>
                     <li class="breadcrumb-item">
-                        Add User
+                        Login
                     </li>
                 </ol>           
             </nav>
@@ -34,41 +38,20 @@
                     <form method="post">
                         <div asp-validation-summary="All" class="text-danger"></div>
                         <div class="mb-3">
-                            <div class="row">
-                            <div class="col-6">
-                                <label asp-for="Name" class="form-label"></label>
-                                <input type="text" asp-for="Name" class="form-control">
-                                <span asp-validation-for="Name" class="text-danger"></span>
-                            </div>
-                            <div class="col-6">
-                                <label asp-for="Surname" class="form-label"></label>
-                                <input type="text" asp-for="Surname" class="form-control">
-                                <span asp-validation-for="Surname" class="text-danger"></span>
-                            </div>
-                            </div>
-                        </div>
-                        <div class="mb-3">
-                            <label asp-for="Username" class="form-label"></label>
-                            <input type="text" asp-for="Username" class="form-control">
-                            <span asp-validation-for="Username" class="text-danger"></span>
-                        </div>
-                        <div class="mb-3">
                             <label asp-for="Email" class="form-label"></label>
                             <input type="email" asp-for="Email" class="form-control">
                             <span asp-validation-for="Email" class="text-danger"></span>
                         </div>
                         <div class="mb-3">
-                            <div class="row">
-                            <div class="col-6">
                             <label asp-for="Password" class="form-label"></label>
                             <input type="password" asp-for="Password" class="form-control">
                             <span asp-validation-for="Password" class="text-danger"></span>
-                            </div>
-                            <div class="col-6">
-                            <label asp-for="ConfirmPassword" class="form-label"></label>
-                            <input asp-for="ConfirmPassword" class="form-control">
-                            <span asp-validation-for="ConfirmPassword" class="text-danger"></span>
-                        </div></div>
+                        </div>
+                        <div class="mb-3">
+                            <input asp-for="RememberMe" class="form-check-input">                            
+                            <label class="form-check-label"> Remember Me</label> 
+                            <span asp-validation-for="RememberMe" class="text-danger"></span>     
+                        </div>
                         <div class="my-3">
                             <button type="submit" class="btn btn-primary">Save</button>
                         </div>

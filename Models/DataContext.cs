@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace dotnet_store.Models;
 
-public class DataContext : IdentityDbContext<IdentityUser>
+public class DataContext : IdentityDbContext<AppUser, AppRole, int>
 {
     public DataContext(DbContextOptions<DataContext> options) : base(options)
     {
@@ -48,6 +48,14 @@ public class DataContext : IdentityDbContext<IdentityUser>
                 new Category {Id=3, CategoryName="Beyaz Eşya", Url="beyaz-esya"},
                 new Category {Id=4, CategoryName="Bilgisayar", Url="bilgisayar"},
                 new Category {Id=5, CategoryName="Diğer", Url="diger"},
+            }
+        );
+
+        modelBuilder.Entity<ProductCategory>().HasData(
+            new List<ProductCategory>() {
+                new ProductCategory(){Id=1, ProductId=1, CategoryId=1},
+                new ProductCategory(){Id=2, ProductId=2, CategoryId=2},
+                new ProductCategory(){Id=3, ProductId=3, CategoryId=3},
             }
         );
 

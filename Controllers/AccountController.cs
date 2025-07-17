@@ -5,6 +5,7 @@ using Microsoft.AspNetCore.Identity.UI.Services;
 using dotnet_store.Services;
 using System.Data.Common;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Authorization;
 
 
 
@@ -12,15 +13,17 @@ namespace dotnet_store.Controllers;
 
 public class AccountController : Controller
 {
-    private UserManager<IdentityUser> _userManager;
+    private UserManager<AppUser> _userManager;
+    private SignInManager<AppUser> _signInManager;
     private readonly EmailSender _emailSender;
     private readonly DataContext _db;
 
-    public AccountController(UserManager<IdentityUser> userManager, EmailSender emailSender, DataContext db)
+    public AccountController(UserManager<AppUser> userManager, SignInManager<AppUser> signInManager, EmailSender emailSender, DataContext db)
     {
-        _db = db;
         _userManager = userManager;
+        _signInManager = signInManager;
         _emailSender = emailSender;
+        _db = db;
     }
 
     public ActionResult Create()
@@ -33,7 +36,7 @@ public class AccountController : Controller
     {
         if (ModelState.IsValid)
         {
-            var user = new IdentityUser { UserName = model.Username, Email = model.Email };
+            var user = new AppUser { UserName = model.Username, Email = model.Email, FirstName = model.Name, LastName = model.Surname };
 
             var result = await _userManager.CreateAsync(user, model.Password);
             foreach (var error in result.Errors)
@@ -86,10 +89,77 @@ public class AccountController : Controller
         return View();
     }
 
+    [HttpGet]
+    public ActionResult Login()
+    {
+        return View();
+    }
+    [HttpPost]
+    public async Task<ActionResult> Login(AccountLoginModel model, string? returnUrl)
+    {
+        if (ModelState.IsValid)
+        {
+            var user = await _userManager.FindByEmailAsync(model.Email);
+            if (user != null)
+            {
+                await _signInManager.SignOutAsync();
+
+                var result = await _signInManager.PasswordSignInAsync(user, model.Password, model.RememberMe, false);
+
+                if (result.Succeeded)
+                {
+                    await _userManager.ResetAccessFailedCountAsync(user);
+                    await _userManager.SetLockoutEndDateAsync(user, null);
+
+                    if (!string.IsNullOrEmpty(returnUrl))
+                    {
+                        return Redirect(returnUrl);
+                    }
+                    {
+                        return RedirectToAction("Index", "Home");
+                    }
+                }
+                else if (result.IsLockedOut)
+                {
+                    var lockOutDate = await _userManager.GetLockoutEndDateAsync(user);
+                    var timeRemaining = lockOutDate.Value - DateTimeOffset.UtcNow;
+                    ModelState.AddModelError("", $"Hesabınız kilitlenmiş. Lütfen {timeRemaining.Minutes + 1} dakika sonra tekrar deneyin.");
+                }
+                else if (result.IsNotAllowed)
+                {
+                    ModelState.AddModelError("", "Bu kullanıcı hesabı giriş yapmaya izin verilmiyor.");
+                }
+                else if (result.RequiresTwoFactor)
+                {
+
+                }
+                else
+                {
+                    ModelState.AddModelError("", "Geçersiz email veya şifre.");
+                }
+            }
+            else if (user != null && !user.EmailConfirmed)
+            {
+                ModelState.AddModelError("", "Email onaylanmamış. Lütfen emailinizi kontrol edin.");
+            }
+            else
+            {
+                ModelState.AddModelError("", "Kullanıcı bulunamadı veya email onaylanmamış.");
+            }
+        }
+        return View(model);
+    }
+
+    public async Task<ActionResult> Logout()
+    {
+        await _signInManager.SignOutAsync();
+        return RedirectToAction("Login", "Account");
+    }
+    [Authorize]
+    public ActionResult Settings()
+    {
+        return View();
+    }
 
 }
-// "SendGrid": {
-//   "ApiKey": "O0n7kgBLShqH5mmKu8mAeA",
-//   "FromEmail": "fordotnetstoreproject@gmail.com",
-//   "FromName": "dotnet store"
-// }
+

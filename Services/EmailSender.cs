@@ -29,7 +29,8 @@ public class EmailSender
                 <p><a href='{confirmationLink}'>Üyeliği Onayla</a></p>
                 <p>Teşekkürler!</p>";
 
-        var msg = MailHelper.CreateSingleEmail(from, to, subject, plainTextContent: null, htmlContent);
+        var plainTextContent = "Üyeliğinizi tamamlamak için lütfen linke tıklayın.";
+        var msg = MailHelper.CreateSingleEmail(from, to, subject, plainTextContent, htmlContent);
         var response = await client.SendEmailAsync(msg);
         if (response.StatusCode != System.Net.HttpStatusCode.Accepted)
         {

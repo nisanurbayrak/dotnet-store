@@ -179,7 +179,9 @@ public class ProductController : Controller
             Image = i.Image,
             IsHome = i.IsHome,
             Stock = i.Stock,
-            CategoryIds = i.ProductCategories.Select(pc => pc.CategoryId).ToList(),
+            CategoryIds = i.ProductCategories
+                    .Select(pc => pc.CategoryId)
+                    .ToList(),
             Description = i.Description
         })
         .FirstOrDefault(i => i.Id == id);

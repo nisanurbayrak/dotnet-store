@@ -1,0 +1,37 @@
+@model AccountLoginModel
+@{
+    Layout = "_SiteLayout";
+}
+
+@section Bar{
+    <section class="bg-primary p-3">
+        <div class="container">
+            <nav>
+                <ol class="breadcrumb mb-0">
+                    <li class="breadcrumb-item">
+                        <a href="#">Home</a>
+                    </li>
+                    <li class="breadcrumb-item">
+                        Login
+                    </li>
+                </ol>           
+            </nav>
+        </div>
+    </section>
+}
+@if (ViewBag.Message != null)
+{
+    <div class="container mt-3">
+        <div class="alert alert-success alert-dismissible fade show" role="alert">
+            @ViewBag.Message
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+    </div>
+}
+
+
+<section class=" my-3">
+    <div class="container">
+        
+    </div>
+</section>

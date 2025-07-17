@@ -1,18 +1,31 @@
-  @using Microsoft.AspNetCore.Identity
+@using Microsoft.AspNetCore.Identity
+
+@using System.Linq
+
 
   @{ 
     Layout ="_AdminLayout"; 
     }
-
+@{
+    var roles = ViewBag.Roles as List<string>;
+    var rolesPerUser = ViewBag.RolesPerUser as Dictionary<int, IList<string>>;
+}
 <div class="row">
     <div class="col">
         <div class="card shadow">
-            <div class="card-header py-1 d-flex justify-content-between align-items-center">
-                <h5 class="card-title">Users</h5>
-                <a href="#" class="btn btn-sm btn-primary">
-                    <i class="fa-solid fa-plus"></i>
-                </a>
-            </div>
+              <div class="card-header d-flex justify-content-between align-items-center">
+          <span>Users</span>
+          <div class="d-flex ms-auto gap-3">
+            <a
+            asp-action="Create"
+            class="btn btn-custom"
+            title="Add New Categories"
+            >
+            <i class="fa-solid fa-plus"></i>
+            </a>
+          </div>
+          
+        </div>
             <div class="card-body">
                 <div class="table-responsive">
                     <table class="table table-bordered table-striped mb-0">
@@ -21,6 +34,7 @@
                                 <th>Id</th>
                                 <th>Username</th>
                                 <th>Email</th>
+                                <th>Roles</th>
                                 <th></th>
                             </tr>
                         </thead>
@@ -30,15 +44,32 @@
                                 <tr>
                                     <td>@u.Id</td>
                                     <td>@u.UserName</td>
-                                    <td>@u.Email</td>
-                                    <td>
-                                        <a asp-action="Edit" asp-route-id="@u.Id" class="btn btn-primary btn-sm">
-                                            <i class="fa-solid fa-pen-to-square"></i>
-                                        </a>
-                                    </td>
-                                </tr>
-                            }
+                                    <td>@u.Email</td>                            
+                                    
 
+                            <td>
+                                @if (rolesPerUser != null && rolesPerUser.ContainsKey(u.Id) && rolesPerUser[u.Id].Count > 0)
+                                {
+                                    <ul class="list-unstyled mb-0">
+                                    @foreach (var role in rolesPerUser[u.Id])
+                                    {
+                                        <li>@role</li>
+                                    }
+                                    </ul>
+                                }
+                                else
+                                {
+                                    <span class="text-muted">No roles assigned</span>
+                                }
+                            </td>
+
+                            <td>
+                                <a asp-action="Edit" asp-route-id="@u.Id" class="btn btn-primary btn-sm">
+                                    <i class="fa-solid fa-pen-to-square"></i>
+                                </a>
+                            </td>
+                            </tr>
+                            }
                         </tbody>
                     </table>
                 </div>
